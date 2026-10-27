@@ -14,7 +14,7 @@ function LevelChart({ readings, compact = false }) {
       y: { title: false, labelFormatter: (value) => `${value} m` },
     },
     scale: { y: { nice: true } },
-    style: { fill: 'linear-gradient(-90deg, #2563eb 0%, #93c5fd 100%)', fillOpacity: 0.3, stroke: '#2563eb', lineWidth: 2.5 },
+    style: { fill: 'linear-gradient(-90deg, #6029a5 0%, #b999dc 100%)', fillOpacity: 0.3, stroke: '#6029a5', lineWidth: 2.5 },
     tooltip: { title: 'labelCompleto' },
   }
 

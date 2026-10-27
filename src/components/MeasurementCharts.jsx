@@ -32,7 +32,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
       y: { title: false, labelFormatter: (value) => `${value} m` },
     },
     scale: { y: { nice: true } },
-    style: { fill: 'linear-gradient(-90deg, #2563eb 0%, #93c5fd 100%)', fillOpacity: 0.3, stroke: '#2563eb', lineWidth: 2.5 },
+    style: { fill: 'linear-gradient(-90deg, #6029a5 0%, #b999dc 100%)', fillOpacity: 0.3, stroke: '#6029a5', lineWidth: 2.5 },
     tooltip: { title: 'labelCompleto' },
   }
   const rainfallConfig = {
@@ -44,7 +44,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
       x: { title: false, labelAutoHide: true, labelAutoRotate: false },
       y: { title: false, labelFormatter: (value) => `${value} mm` },
     },
-    style: { fill: '#e91e63', radiusTopLeft: 4, radiusTopRight: 4 },
+    style: { fill: '#fa4165', radiusTopLeft: 4, radiusTopRight: 4 },
     tooltip: { title: 'labelCompleto' },
   }
 

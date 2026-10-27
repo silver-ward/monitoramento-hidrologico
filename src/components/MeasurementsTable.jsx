@@ -46,7 +46,7 @@ export default function MeasurementsTable({
       dataIndex: 'rainfall',
       key: 'status',
       width: '15%',
-      render: (rainfall) => <Tag color={rainfall > 0 ? 'magenta' : 'default'}>{rainfall > 0 ? 'Chuva' : 'Seco'}</Tag>,
+      render: (rainfall) => <Tag color={rainfall > 0 ? '#fa4165' : 'default'}>{rainfall > 0 ? 'Chuva' : 'Seco'}</Tag>,
     },
   ]
 

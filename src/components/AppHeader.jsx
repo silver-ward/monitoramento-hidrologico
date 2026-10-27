@@ -6,6 +6,7 @@ import {
   TableOutlined,
 } from '@ant-design/icons'
 import { Button, Drawer, Menu } from 'antd'
+import cogmoLogo from '../../img/cogmo-logo.png'
 
 const pageIcons = {
   overview: <DashboardOutlined />,
@@ -30,8 +31,7 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
     <header className="app-header">
       <div className="header-inner">
         <a className="brand" href="#" onClick={(event) => event.preventDefault()} aria-label="Cogmo Technology">
-          <span className="brand-name">cogmo</span>
-          <span className="brand-subtitle">technology</span>
+          <img className="brand-logo" src={cogmoLogo} alt="Cogmo Technology" />
         </a>
         <Menu
           className="desktop-nav"
@@ -56,8 +56,7 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
       <Drawer
         title={
           <div className="brand">
-            <span className="brand-name">cogmo</span>
-            <span className="brand-subtitle">technology</span>
+            <img className="brand-logo" src={cogmoLogo} alt="Cogmo Technology" />
           </div>
         }
         open={drawerOpen}

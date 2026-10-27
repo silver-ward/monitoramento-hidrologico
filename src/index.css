@@ -7,9 +7,15 @@
 }
 
 :root {
+  --brand-coral: #fa4165;
+  --brand-purple: #6029a5;
+  --brand-ink: #26194f;
+  --brand-muted: #706a81;
+  --brand-border: #ebe8f1;
+  --brand-surface: #f8f7fb;
   font-family: Comfortaa, sans-serif;
-  color: #1e293b;
-  background: #f8fafc;
+  color: var(--brand-ink);
+  background: var(--brand-surface);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -30,6 +36,7 @@ body,
 
 body {
   min-height: 100vh;
+  background: var(--brand-surface);
 }
 
 button,

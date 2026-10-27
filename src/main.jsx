@@ -9,14 +9,15 @@ createRoot(document.getElementById('root')).render(
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: '#1d1841',
-          colorInfo: '#2563eb',
-          colorSuccess: '#047857',
-          colorWarning: '#f59e0b',
-          colorError: '#e91e63',
-          colorText: '#1e293b',
-          colorTextSecondary: '#64748b',
-          colorBgLayout: '#f8fafc',
+          colorPrimary: '#fa4165',
+          colorInfo: '#6029a5',
+          colorSuccess: '#16805d',
+          colorWarning: '#d99b18',
+          colorError: '#d94b62',
+          colorText: '#26194f',
+          colorTextSecondary: '#706a81',
+          colorBgLayout: '#f8f7fb',
+          colorBorder: '#ebe8f1',
           borderRadius: 8,
           fontFamily: 'Comfortaa, sans-serif',
         },
