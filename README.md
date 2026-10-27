@@ -58,6 +58,4 @@ A aplicação foi desenvolvida utilizando as seguintes tecnologias e bibliotecas
 
 Projeto desenvolvido por Rebeca, Eduardo e Leonilson para a Cogmo Technology no âmbito do programa Bolsa Futuro Digital, oferecido pelo Instituto Hardware Brasil nas dependências do Instituto Federal de Brasília.
 
-<img src="./img/hbr-logo.png" width="100" align="center">
-<img src="./img/ifb-test.webp" width="100" align="center">
-<img src="./img/cogmo-logo-bg.png" width="100" align="center">
+<img src="./img/hbr-logo.png" width="100" align="center"> <img src="./img/ifb-test.webp" width="100" align="center"> <img src="./img/cogmo-logo.png" width="100" align="center">
