@@ -98,8 +98,8 @@ function AppContent() {
           className="disclaimer"
           showIcon
           type="info"
-          title="Aviso Operacional"
-          description="Todas as estações e medições são dados fictícios gerados para fins pedagógicos (Cogmo Desafio Frontend)."
+          title="Aviso"
+          description="Todas as estações e medições utilizadas são fictícias, sem finalidade operacional. Não devem fundamentar alertas ou decisões de segurança."
         />
 
         {currentPage === 'overview' && (
@@ -128,7 +128,7 @@ function AppContent() {
 
       <Layout.Footer className="app-footer">
         <strong>Cogmo Technology</strong> · Projeto Técnico
-        <div>Todos os dados telemétricos apresentados são simulados.</div>
+        <div>Todas as estações e medições utilizadas são fictícias, sem finalidade operacional. Não devem fundamentar alertas ou decisões de segurança.</div>
       </Layout.Footer>
     </Layout>
   )
