@@ -42,7 +42,7 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
         />
         <div className="header-actions">
           <Button className="contact-button" type="primary" onClick={onContact}>
-            Vamos Conversar?
+            Suporte
           </Button>
           <Button
             className="mobile-menu-button"
@@ -71,7 +71,7 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
           onClick={handleNavigate}
         />
         <Button className="drawer-contact" type="primary" block onClick={onContact}>
-          Vamos Conversar?
+          Suporte
         </Button>
       </Drawer>
     </header>

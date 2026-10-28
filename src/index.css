@@ -9,6 +9,7 @@
 :root {
   --brand-coral: #fa4165;
   --brand-purple: #6029a5;
+  --brand-cta-button: linear-gradient(45deg, #fb5055, #f92b74);
   --brand-deep-purple: #18003a;
   --brand-ink: #26194f;
   --brand-muted: #706a81;

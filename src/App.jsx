@@ -68,8 +68,8 @@ function AppContent() {
 
   const handleContact = () => {
     modal.info({
-      title: 'Vamos conversar?',
-      content: 'Canal institucional Cogmo: contato@cogmo.com.br',
+      title: 'Suporte',
+      content: 'Cogmo: contato@cogmo.com.br',
       okText: 'Fechar',
     })
   }

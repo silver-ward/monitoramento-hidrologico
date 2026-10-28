@@ -71,6 +71,7 @@
 .contact-button,
 .drawer-contact {
   font-weight: 700;
+  background: var(--brand-muted);
 }
 
 .mobile-menu-button {
