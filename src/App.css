@@ -256,10 +256,10 @@
 
 .app-footer {
   padding: 18px 20px;
-  color: rgb(255 255 255 / 78%);
-  background: var(--brand-purple);
+  color: rgb(255 255 255 / 80%);
+  background: var(--brand-deep-purple);
   text-align: center;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .app-footer strong {
