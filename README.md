@@ -92,8 +92,34 @@ O projeto atende integralmente ao desafio proposto, contemplando:
 * **RNF06** — Código organizado por componentes e responsabilidades (SPA)
 
 ---
+```text
+monitoramento-hidrologico/
+├── 📂 public/             # Arquivos estáticos (favicon, imagens)
+├── 📂 src/
+│   ├── 📂 assets/         # Imagens, logotipos (ex: logo da cogmo)
+│   ├── 📂 components/     # Componentes reutilizáveis da interface
+│   │   ├── Header.jsx     # Barra superior com logo, menu de abas e botão Suporte
+│   │   ├── Sidebar.jsx    # Menu lateral (responsivo/mobile)
+│   │   ├── StationCard.jsx# Seletor de estação hidrológica e dados gerais
+│   │   ├── TimeFilter.jsx # Botões de janela de tempo (12h, 24h, 48h)
+│   │   ├── NoticeBox.jsx  # Caixa de aviso de dados fictícios
+│   │   ├── MetricCard.jsx # Cards de métricas (Nível, Precipitação, Transmissão)
+│   │   ├── ChartSection.jsx# Gráficos de tendência rápida
+│   │   └── SupportModal.jsx# Modal de contato de suporte
+│   ├── 📂 pages/          # Páginas principais da aplicação
+│   │   ├── VisaoGeral.jsx # Tela principal mostrada no vídeo
+│   │   ├── HistoricoMedicoes.jsx # Página de histórico
+│   │   └── ConsultaMedicoes.jsx  # Página de consulta
+│   ├── 📂 data/           # Mock data (dados fictícios das estações e medições)
+│   │   └── stationsData.js
+│   ├── 📂 styles/         # Estilos globais (se necessário)
+│   ├── App.jsx            # Componente raiz com as rotas/abas
+│   └── main.jsx           # Ponto de entrada do React
+├── .env
+├── package.json
+└── vite.config.js
 
-## 🖼️ Telas da Aplicação
+### 🖼️ Telas da Aplicação
 
 As telas abaixo ilustram as principais funcionalidades e a navegação do sistema.
 
