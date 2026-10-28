@@ -121,6 +121,13 @@
   gap: 8px;
 }
 
+.time-controls .ant-segmented-item-selected,
+.time-controls .ant-segmented-item-selected:hover {
+  color: #fff;
+  background: var(--brand-cta-button);
+  box-shadow: none;
+}
+
 .station-metadata {
   margin-top: 12px;
   padding-top: 10px;
