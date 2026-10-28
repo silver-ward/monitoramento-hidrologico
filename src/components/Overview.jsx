@@ -37,7 +37,7 @@ export default function Overview({ station, readings, lastReading, timeRange, on
         <Col xs={24} md={8}>
           <Card className="stat-card stat-level">
             <Statistic
-              title="Último Nível Registado (RF04)"
+              title="Último Nível Registado"
               value={lastReading ? lastReading.level : '--'}
               precision={lastReading ? 2 : undefined}
               suffix="m"
@@ -50,7 +50,7 @@ export default function Overview({ station, readings, lastReading, timeRange, on
         <Col xs={24} md={8}>
           <Card className="stat-card stat-rain">
             <Statistic
-              title="Precipitação Recente (RF05)"
+              title="Precipitação Recente"
               value={lastReading ? lastReading.rainfall : '--'}
               precision={lastReading ? 1 : undefined}
               suffix="mm/h"

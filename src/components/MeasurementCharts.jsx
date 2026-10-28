@@ -10,7 +10,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
           image={<AlertOutlined className="empty-icon" />}
           description={
             <div>
-              <Typography.Title level={5}>Ausência de Leituras Históricas (RF09)</Typography.Title>
+              <Typography.Title level={5}>Ausência de Leituras Históricas</Typography.Title>
               <Typography.Text>
                 A estação selecionada ({station.name}) não enviou pacotes de telemetria nas últimas {timeRange}.
               </Typography.Text>
@@ -51,13 +51,13 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
   return (
     <div className="page-stack">
       <Card
-        title={<span className="card-title"><LineChartOutlined /> Série Histórica do Nível do Rio (metros) - RF06</span>}
+        title={<span className="card-title"><LineChartOutlined /> Série Histórica do Nível do Rio (metros)</span>}
         extra={<Typography.Text type="secondary">Fuso Horário: BRT (UTC-3)</Typography.Text>}
       >
         <Area {...levelConfig} />
       </Card>
       <Card
-        title={<span className="card-title"><CloudOutlined /> Série Histórica de Precipitação (mm/h) - RF07</span>}
+        title={<span className="card-title"><CloudOutlined /> Série Histórica de Precipitação (mm/h)</span>}
         extra={<Typography.Text type="secondary">Série independente de precipitação</Typography.Text>}
       >
         <Column {...rainfallConfig} />

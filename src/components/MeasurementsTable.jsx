@@ -54,7 +54,7 @@ export default function MeasurementsTable({
     <Card
       title={
         <div>
-          <span className="card-title"><TableOutlined /> Consulta Analítica de Medições (RF10 e RF11)</span>
+          <span className="card-title"><TableOutlined /> Consulta Analítica de Medições</span>
           <div><Typography.Text type="secondary">Total de registos encontrados: {readings.length}</Typography.Text></div>
         </div>
       }

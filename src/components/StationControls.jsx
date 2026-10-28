@@ -22,7 +22,7 @@ export default function StationControls({
       <div className="control-inner">
         <div className="selectors-row">
           <div className="control-field station-field">
-            <Typography.Text className="field-label">Estação Hidrológica (RF01 / RF02)</Typography.Text>
+            <Typography.Text className="field-label">Estação Hidrológica</Typography.Text>
             <Select
               aria-label="Estação Hidrológica"
               value={selectedStationId}
@@ -34,7 +34,7 @@ export default function StationControls({
             />
           </div>
           <div className="control-field">
-            <Typography.Text className="field-label">Janela de Tempo (RF08)</Typography.Text>
+            <Typography.Text className="field-label">Janela de Tempo</Typography.Text>
             <div className="time-controls">
               <Segmented
                 value={timeRange}
