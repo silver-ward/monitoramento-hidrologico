@@ -75,15 +75,6 @@ export default function Overview({ station, readings, lastReading, timeRange, on
           </Card>
         </Col>
       </Row>
-
-      <Card
-        title={<span className="card-title"><LineChartOutlined /> Tendência Rápida do Nível (Últimas {timeRange})</span>}
-        extra={<Button type="link" onClick={onShowCharts}>Ver gráficos completos →</Button>}
-      >
-        {readings.length === 0
-          ? <EmptyReadings />
-          : <LevelChart readings={readings} compact />}
-      </Card>
     </div>
   )
 }
