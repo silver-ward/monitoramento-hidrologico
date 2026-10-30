@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react'
-import { App as AntdApp, Alert, Layout } from 'antd'
+import { useEffect, useMemo, useState } from 'react'
+import { App as AntdApp, Layout } from 'antd'
 import AppHeader from './components/AppHeader.jsx'
 import MeasurementCharts from './components/MeasurementCharts.jsx'
 import MeasurementsTable from './components/MeasurementsTable.jsx'
@@ -15,13 +15,22 @@ const pageItems = [
 ]
 
 function AppContent() {
-  const { modal } = AntdApp.useApp()
+  const { modal, notification } = AntdApp.useApp()
   const [currentPage, setCurrentPage] = useState('overview')
   const [selectedStationId, setSelectedStationId] = useState(stations[0].id)
   const [timeRange, setTimeRange] = useState('24h')
   const [filterRain, setFilterRain] = useState('all')
   const [sortOrder, setSortOrder] = useState('desc')
   const [refreshing, setRefreshing] = useState(false)
+
+  useEffect(() => {
+    notification.info({
+      key: 'operational-disclaimer',
+      message: 'Todas as estações e medições utilizadas são fictícias, sem finalidade operacional.',
+      description: 'Não devem fundamentar alertas ou decisões de segurança.',
+      duration: 5
+    })
+  }, [notification])
 
   const currentStation = stations.find((station) => station.id === selectedStationId) ?? stations[0]
   const filteredData = useMemo(() => {
@@ -94,14 +103,6 @@ function AppContent() {
       />
 
       <Layout.Content className="content-area">
-        <Alert
-          className="disclaimer"
-          showIcon
-          type="info"
-          title="Aviso"
-          description="Todas as estações e medições utilizadas são fictícias, sem finalidade operacional. Não devem fundamentar alertas ou decisões de segurança."
-        />
-
         {currentPage === 'overview' && (
           <Overview
             station={currentStation}

@@ -144,19 +144,6 @@
   padding: 24px 20px;
 }
 
-.disclaimer {
-  margin-bottom: 16px;
-  border: 1px solid #e4d7f3;
-  border-left: 4px solid var(--brand-purple);
-  border-radius: 8px;
-  background: #fbf8ff;
-}
-
-.disclaimer .ant-alert-message,
-.disclaimer .ant-alert-description {
-  font-size: 12px;
-}
-
 .page-stack {
   display: flex;
   flex-direction: column;
@@ -277,6 +264,13 @@
 .app-footer div {
   margin-top: 5px;
   opacity: 0.75;
+}
+
+.ant-notification-fade-leave,
+.ant-notification-fade-appear-active
+{
+  transition: all 1s ease-in-out !important;
+  animation-duration: 2s !important;
 }
 
 @media (max-width: 900px) {
