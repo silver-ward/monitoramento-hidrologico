@@ -26,8 +26,8 @@ function AppContent() {
   useEffect(() => {
     notification.info({
       key: 'operational-disclaimer',
-      message: 'Todas as estações e medições utilizadas são fictícias, sem finalidade operacional.',
-      description: 'Não devem fundamentar alertas ou decisões de segurança.',
+      message: 'Estações e medições fictícias.',
+      description: '',
       duration: 5
     })
   }, [notification])
@@ -129,7 +129,7 @@ function AppContent() {
 
       <Layout.Footer className="app-footer">
         <strong>Cogmo Technology</strong> · Projeto Técnico
-        <div>Todas as estações e medições utilizadas são fictícias, sem finalidade operacional. Não devem fundamentar alertas ou decisões de segurança.</div>
+        <div>Estações e medições fictícias.</div>
       </Layout.Footer>
     </Layout>
   )
