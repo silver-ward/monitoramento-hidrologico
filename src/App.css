@@ -85,7 +85,7 @@
 
 .mobile-drawer .ant-drawer-section {
   color: #fff;
-  background: #1d1841;
+  background: var(--brand-deep-purple);
 }
 
 .mobile-drawer .ant-drawer-header {
@@ -125,35 +125,18 @@
   color: #fff;
 }
 
-.mobile-drawer .ant-menu-item .anticon {
-  color: inherit;
-}
-
 .mobile-drawer .ant-menu-item:hover {
   color: #fff;
   background: rgb(255 255 255 / 10%);
 }
 
-.mobile-drawer .ant-menu-item-selected,
-.mobile-drawer .ant-menu-item-selected .anticon {
-  color: #f472b6;
+.mobile-drawer .ant-menu-item-selected {
+  color: var(--brand-coral);
   background: rgb(255 255 255 / 10%);
 }
 
 .mobile-drawer .ant-menu-item-selected:hover {
-  color: #f472b6;
-}
-
-.mobile-drawer .drawer-contact {
-  color: #fff;
-  background: #f472b6;
-  border-color: #f472b6;
-}
-
-.mobile-drawer .drawer-contact:hover {
-  color: #fff !important;
-  background: #ec4899 !important;
-  border-color: #ec4899 !important;
+  color: var(--brand-coral);
 }
 
 .control-strip {
@@ -213,7 +196,6 @@
 .station-metadata {
   margin-top: 0;
   padding-top: 10px;
-  border-top: 1px solid var(--brand-border);
 }
 
 .station-metadata .ant-descriptions-item-label,
