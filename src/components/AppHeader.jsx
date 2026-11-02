@@ -2,7 +2,6 @@ import { useState } from 'react'
 import {
   DashboardOutlined,
   LineChartOutlined,
-  MenuOutlined,
   TableOutlined,
 } from '@ant-design/icons'
 import { Button, Drawer, Menu } from 'antd'
@@ -48,7 +47,7 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
             className="mobile-menu-button"
             type="text"
             aria-label="Abrir menu"
-            icon={<MenuOutlined />}
+            icon={<LineChartOutlined />}
             onClick={() => setDrawerOpen(true)}
           />
         </div>
