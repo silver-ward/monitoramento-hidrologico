@@ -26,10 +26,16 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
     setDrawerOpen(false)
   }
 
+  const handleLogoClick = (event) => {
+    event.preventDefault()
+    onNavigate('overview')
+    setDrawerOpen(false)
+  }
+
   return (
     <header className="app-header">
       <div className="header-inner">
-        <a className="brand" href="#" onClick={(event) => event.preventDefault()} aria-label="Cogmo Technology">
+        <a className="brand" href="#" onClick={handleLogoClick} aria-label="Cogmo Technology - Visão Geral">
           <img className="brand-logo" src={cogmoLogo} alt="Cogmo Technology" />
         </a>
         <Menu
