@@ -55,7 +55,7 @@ export default function MeasurementsTable({
       title={
         <div>
           <span className="card-title"><TableOutlined /> Consulta Analítica de Medições</span>
-          <div><Typography.Text type="secondary">Total de registos encontrados: {readings.length}</Typography.Text></div>
+          <div><Typography.Text type="secondary">Total de registros encontrados: {readings.length}</Typography.Text></div>
         </div>
       }
       extra={

@@ -272,6 +272,23 @@
   font-weight: 700;
 }
 
+.stat-card .ant-statistic-title .anticon,
+.stat-status .field-label .anticon {
+  margin-right: 6px;
+}
+
+.stat-level .ant-statistic-title .anticon {
+  color: var(--brand-purple);
+}
+
+.stat-rain .ant-statistic-title .anticon {
+  color: var(--brand-coral);
+}
+
+.stat-status .field-label .anticon {
+  color: #16805d;
+}
+
 .stat-card .ant-statistic-content {
   color: var(--brand-ink);
   font-size: 27px;
