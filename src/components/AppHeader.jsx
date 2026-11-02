@@ -54,6 +54,8 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
         </div>
       </div>
       <Drawer
+        rootClassName="mobile-drawer"
+        classNames={{ mask: 'mobile-drawer-mask' }}
         title={
           <div className="brand">
             <img className="brand-logo" src={cogmoLogo} alt="Cogmo Technology" />

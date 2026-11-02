@@ -83,6 +83,79 @@
   margin-top: 24px;
 }
 
+.mobile-drawer .ant-drawer-section {
+  color: #fff;
+  background: #1d1841;
+}
+
+.mobile-drawer .ant-drawer-header {
+  border-bottom-color: rgb(255 255 255 / 10%);
+}
+
+.mobile-drawer .ant-drawer-title,
+.mobile-drawer .ant-drawer-body {
+  color: #fff;
+}
+
+.mobile-drawer .brand-logo {
+  filter: brightness(0) invert(1);
+}
+
+.mobile-drawer .ant-drawer-close {
+  color: rgb(255 255 255 / 70%);
+}
+
+.mobile-drawer .ant-drawer-close:hover {
+  color: #fff;
+  background: rgb(255 255 255 / 10%);
+}
+
+.mobile-drawer-mask {
+  background: rgb(15 23 42 / 60%) !important;
+  backdrop-filter: blur(4px);
+}
+
+.mobile-drawer .ant-menu {
+  color: #fff;
+  background: transparent;
+  border-inline-end: 0;
+}
+
+.mobile-drawer .ant-menu-item {
+  color: #fff;
+}
+
+.mobile-drawer .ant-menu-item .anticon {
+  color: inherit;
+}
+
+.mobile-drawer .ant-menu-item:hover {
+  color: #fff;
+  background: rgb(255 255 255 / 10%);
+}
+
+.mobile-drawer .ant-menu-item-selected,
+.mobile-drawer .ant-menu-item-selected .anticon {
+  color: #f472b6;
+  background: rgb(255 255 255 / 10%);
+}
+
+.mobile-drawer .ant-menu-item-selected:hover {
+  color: #f472b6;
+}
+
+.mobile-drawer .drawer-contact {
+  color: #fff;
+  background: #f472b6;
+  border-color: #f472b6;
+}
+
+.mobile-drawer .drawer-contact:hover {
+  color: #fff !important;
+  background: #ec4899 !important;
+  border-color: #ec4899 !important;
+}
+
 .control-strip {
   padding: 16px 20px 10px;
   background: #fff;
