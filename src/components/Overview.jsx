@@ -1,4 +1,9 @@
-import { AlertOutlined, LineChartOutlined } from '@ant-design/icons'
+import {
+  AlertOutlined,
+  CloudOutlined,
+  LineChartOutlined,
+  WifiOutlined,
+} from '@ant-design/icons'
 import { Area } from '@ant-design/plots'
 import { Button, Card, Empty, Row, Col, Statistic, Tag, Typography } from 'antd'
 
@@ -21,7 +26,7 @@ function LevelChart({ readings, compact = false }) {
   return <Area {...config} />
 }
 
-function EmptyReadings({ description = 'Nenhum registo telemétrico disponível para esta estação.' }) {
+function EmptyReadings({ description = 'Nenhum registro telemétrico disponível para esta estação.' }) {
   return (
     <Empty
       image={<AlertOutlined className="empty-icon" />}
@@ -37,7 +42,7 @@ export default function Overview({ station, readings, lastReading, timeRange, on
         <Col xs={24} md={8}>
           <Card className="stat-card stat-level">
             <Statistic
-              title="Último Nível Registado"
+              title={<><LineChartOutlined /> Último Nível Registrado</>}
               value={lastReading ? lastReading.level : '--'}
               precision={lastReading ? 2 : undefined}
               suffix="m"
@@ -50,7 +55,7 @@ export default function Overview({ station, readings, lastReading, timeRange, on
         <Col xs={24} md={8}>
           <Card className="stat-card stat-rain">
             <Statistic
-              title="Precipitação Recente"
+              title={<><CloudOutlined /> Precipitação Recente</>}
               value={lastReading ? lastReading.rainfall : '--'}
               precision={lastReading ? 1 : undefined}
               suffix="mm/h"
@@ -62,7 +67,9 @@ export default function Overview({ station, readings, lastReading, timeRange, on
         </Col>
         <Col xs={24} md={8}>
           <Card className="stat-card stat-status">
-            <Typography.Text className="field-label">Estado de Transmissão</Typography.Text>
+            <Typography.Text className="field-label">
+              <WifiOutlined /> Estado de Transmissão
+            </Typography.Text>
             <div className="status-line">
               <Tag color={station.status === 'Operando' ? 'success' : 'error'}>{station.status}</Tag>
               {lastReading && (

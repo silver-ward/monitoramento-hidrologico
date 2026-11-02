@@ -2,7 +2,6 @@ import { useState } from 'react'
 import {
   DashboardOutlined,
   LineChartOutlined,
-  MenuOutlined,
   TableOutlined,
 } from '@ant-design/icons'
 import { Button, Drawer, Menu } from 'antd'
@@ -27,10 +26,16 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
     setDrawerOpen(false)
   }
 
+  const handleLogoClick = (event) => {
+    event.preventDefault()
+    onNavigate('overview')
+    setDrawerOpen(false)
+  }
+
   return (
     <header className="app-header">
       <div className="header-inner">
-        <a className="brand" href="#" onClick={(event) => event.preventDefault()} aria-label="Cogmo Technology">
+        <a className="brand" href="#" onClick={handleLogoClick} aria-label="Cogmo Technology - Visão Geral">
           <img className="brand-logo" src={cogmoLogo} alt="Cogmo Technology" />
         </a>
         <Menu
@@ -48,12 +53,14 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
             className="mobile-menu-button"
             type="text"
             aria-label="Abrir menu"
-            icon={<MenuOutlined />}
+            icon={<LineChartOutlined />}
             onClick={() => setDrawerOpen(true)}
           />
         </div>
       </div>
       <Drawer
+        rootClassName="mobile-drawer"
+        classNames={{ mask: 'mobile-drawer-mask' }}
         title={
           <div className="brand">
             <img className="brand-logo" src={cogmoLogo} alt="Cogmo Technology" />
