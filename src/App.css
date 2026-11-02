@@ -127,7 +127,7 @@
 
 .mobile-drawer .ant-menu-item:hover {
   color: #fff;
-  background: rgb(255 255 255 / 10%);
+  background: rgb(255 255 255 / 80%) !important;
 }
 
 .mobile-drawer .ant-menu-item-selected {
@@ -137,6 +137,7 @@
 
 .mobile-drawer .ant-menu-item-selected:hover {
   color: var(--brand-coral);
+  background: rgb(255 255 255 / 80%) !important;
 }
 
 .control-strip {
