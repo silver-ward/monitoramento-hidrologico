@@ -157,6 +157,9 @@
 }
 
 .control-strip {
+  position: sticky;
+  top: 66px;
+  z-index: 19;
   padding: 16px 20px 10px;
   background: #fff;
   border-bottom: 1px solid var(--brand-border);
@@ -367,6 +370,7 @@
   }
 
   .control-strip {
+    top: 60px;
     padding: 14px 16px 8px;
   }
 
