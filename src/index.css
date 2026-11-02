@@ -1,23 +1,15 @@
 @font-face {
   font-family: Comfortaa;
-  src: url('./assets/fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf') format('truetype');
+  src: url('../fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
 }
 
 :root {
-  --brand-coral: #fa4165;
-  --brand-purple: #6029a5;
-  --brand-cta-button: linear-gradient(45deg, #fb5055, #f92b74);
-  --brand-deep-purple: #18003a;
-  --brand-ink: #26194f;
-  --brand-muted: #706a81;
-  --brand-border: #ebe8f1;
-  --brand-surface: #f8f7fb;
   font-family: Comfortaa, sans-serif;
-  color: var(--brand-ink);
-  background: var(--brand-surface);
+  color: #1e293b;
+  background: #f8fafc;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -38,7 +30,6 @@ body,
 
 body {
   min-height: 100vh;
-  background: var(--brand-surface);
 }
 
 button,

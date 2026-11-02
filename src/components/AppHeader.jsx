@@ -2,11 +2,9 @@ import { useState } from 'react'
 import {
   DashboardOutlined,
   LineChartOutlined,
-  MenuOutlined,
   TableOutlined,
 } from '@ant-design/icons'
 import { Button, Drawer, Menu } from 'antd'
-import cogmoLogo from '../../img/cogmo-logo.png'
 
 const pageIcons = {
   overview: <DashboardOutlined />,
@@ -27,11 +25,18 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
     setDrawerOpen(false)
   }
 
+  const handleHomeClick = (event) => {
+    event.preventDefault()
+    onNavigate('overview')
+    setDrawerOpen(false)
+  }
+
   return (
     <header className="app-header">
       <div className="header-inner">
-        <a className="brand" href="#" onClick={(event) => event.preventDefault()} aria-label="Cogmo Technology">
-          <img className="brand-logo" src={cogmoLogo} alt="Cogmo Technology" />
+        <a className="brand" href="/" onClick={handleHomeClick} aria-label="Cogmo Technology - página inicial">
+          <span className="brand-name">cogmo</span>
+          <span className="brand-subtitle">technology</span>
         </a>
         <Menu
           className="desktop-nav"
@@ -42,22 +47,25 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
         />
         <div className="header-actions">
           <Button className="contact-button" type="primary" onClick={onContact}>
-            Suporte
+            Vamos Conversar?
           </Button>
           <Button
             className="mobile-menu-button"
             type="text"
             aria-label="Abrir menu"
-            icon={<MenuOutlined />}
+            icon={<LineChartOutlined />}
             onClick={() => setDrawerOpen(true)}
           />
         </div>
       </div>
       <Drawer
+        className="mobile-drawer"
+        rootClassName="mobile-drawer-root"
         title={
-          <div className="brand">
-            <img className="brand-logo" src={cogmoLogo} alt="Cogmo Technology" />
-          </div>
+          <a className="brand" href="/" onClick={handleHomeClick} aria-label="Cogmo Technology - página inicial">
+            <span className="brand-name">cogmo</span>
+            <span className="brand-subtitle">technology</span>
+          </a>
         }
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
@@ -65,13 +73,14 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
         size="small"
       >
         <Menu
+          className="drawer-nav"
           mode="inline"
           selectedKeys={[currentPage]}
           items={menuItems}
           onClick={handleNavigate}
         />
         <Button className="drawer-contact" type="primary" block onClick={onContact}>
-          Suporte
+          Vamos Conversar?
         </Button>
       </Drawer>
     </header>

@@ -1,25 +1,12 @@
-import { AlertOutlined, LineChartOutlined } from '@ant-design/icons'
-import { Area } from '@ant-design/plots'
+import {
+  AlertOutlined,
+  CloudOutlined,
+  ColumnHeightOutlined,
+  LineChartOutlined,
+  RadarChartOutlined,
+} from '@ant-design/icons'
 import { Button, Card, Empty, Row, Col, Statistic, Tag, Typography } from 'antd'
-
-function LevelChart({ readings, compact = false }) {
-  const config = {
-    data: readings,
-    xField: 'labelHora',
-    yField: 'level',
-    shapeField: 'smooth',
-    height: compact ? 200 : 240,
-    axis: {
-      x: { title: false, labelAutoHide: true, labelAutoRotate: false },
-      y: { title: false, labelFormatter: (value) => `${value} m` },
-    },
-    scale: { y: { nice: true } },
-    style: { fill: 'linear-gradient(-90deg, #6029a5 0%, #b999dc 100%)', fillOpacity: 0.3, stroke: '#6029a5', lineWidth: 2.5 },
-    tooltip: { title: 'labelCompleto' },
-  }
-
-  return <Area {...config} />
-}
+import LevelAreaChart from './LevelAreaChart.jsx'
 
 function EmptyReadings({ description = 'Nenhum registo telemétrico disponível para esta estação.' }) {
   return (
@@ -37,7 +24,14 @@ export default function Overview({ station, readings, lastReading, timeRange, on
         <Col xs={24} md={8}>
           <Card className="stat-card stat-level">
             <Statistic
-              title="Último Nível Registado"
+              title={
+                <span className="metric-title">
+                  <span className="metric-icon metric-icon-level" aria-hidden="true">
+                    <ColumnHeightOutlined />
+                  </span>
+                  Nível Atual do Rio (RF04)
+                </span>
+              }
               value={lastReading ? lastReading.level : '--'}
               precision={lastReading ? 2 : undefined}
               suffix="m"
@@ -50,7 +44,14 @@ export default function Overview({ station, readings, lastReading, timeRange, on
         <Col xs={24} md={8}>
           <Card className="stat-card stat-rain">
             <Statistic
-              title="Precipitação Recente"
+              title={
+                <span className="metric-title">
+                  <span className="metric-icon metric-icon-rain" aria-hidden="true">
+                    <CloudOutlined />
+                  </span>
+                  Precipitação Recente (RF05)
+                </span>
+              }
               value={lastReading ? lastReading.rainfall : '--'}
               precision={lastReading ? 1 : undefined}
               suffix="mm/h"
@@ -62,7 +63,12 @@ export default function Overview({ station, readings, lastReading, timeRange, on
         </Col>
         <Col xs={24} md={8}>
           <Card className="stat-card stat-status">
-            <Typography.Text className="field-label">Estado de Transmissão</Typography.Text>
+            <Typography.Text className="field-label metric-title">
+              <span className="metric-icon metric-icon-status" aria-hidden="true">
+                <RadarChartOutlined />
+              </span>
+              Diagnóstico Telemétrico
+            </Typography.Text>
             <div className="status-line">
               <Tag color={station.status === 'Operando' ? 'success' : 'error'}>{station.status}</Tag>
               {lastReading && (
@@ -75,6 +81,15 @@ export default function Overview({ station, readings, lastReading, timeRange, on
           </Card>
         </Col>
       </Row>
+
+      <Card
+        title={<span className="card-title"><LineChartOutlined /> Tendência Rápida do Nível (Últimas {timeRange})</span>}
+        extra={<Button type="link" onClick={onShowCharts}>Ver gráficos completos →</Button>}
+      >
+        {readings.length === 0
+          ? <EmptyReadings />
+          : <LevelAreaChart readings={readings} height={200} />}
+      </Card>
     </div>
   )
 }

@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { App as AntdApp, Layout } from 'antd'
+import { useMemo, useState } from 'react'
+import { App as AntdApp, Alert, Layout } from 'antd'
 import AppHeader from './components/AppHeader.jsx'
 import MeasurementCharts from './components/MeasurementCharts.jsx'
 import MeasurementsTable from './components/MeasurementsTable.jsx'
@@ -15,22 +15,13 @@ const pageItems = [
 ]
 
 function AppContent() {
-  const { modal, notification } = AntdApp.useApp()
+  const { modal } = AntdApp.useApp()
   const [currentPage, setCurrentPage] = useState('overview')
   const [selectedStationId, setSelectedStationId] = useState(stations[0].id)
   const [timeRange, setTimeRange] = useState('24h')
   const [filterRain, setFilterRain] = useState('all')
   const [sortOrder, setSortOrder] = useState('desc')
   const [refreshing, setRefreshing] = useState(false)
-
-  useEffect(() => {
-    notification.info({
-      key: 'operational-disclaimer',
-      message: 'Estações e medições fictícias.',
-      description: '',
-      duration: 5
-    })
-  }, [notification])
 
   const currentStation = stations.find((station) => station.id === selectedStationId) ?? stations[0]
   const filteredData = useMemo(() => {
@@ -77,8 +68,8 @@ function AppContent() {
 
   const handleContact = () => {
     modal.info({
-      title: 'Suporte',
-      content: 'Cogmo: contato@cogmo.com.br',
+      title: 'Vamos conversar?',
+      content: 'Canal institucional Cogmo: contato@cogmo.com.br',
       okText: 'Fechar',
     })
   }
@@ -103,6 +94,14 @@ function AppContent() {
       />
 
       <Layout.Content className="content-area">
+        <Alert
+          className="disclaimer"
+          showIcon
+          type="info"
+          title="Aviso Operacional"
+          description="Todas as estações e medições são dados fictícios gerados para fins pedagógicos (Cogmo Desafio Frontend)."
+        />
+
         {currentPage === 'overview' && (
           <Overview
             station={currentStation}
@@ -129,7 +128,7 @@ function AppContent() {
 
       <Layout.Footer className="app-footer">
         <strong>Cogmo Technology</strong> · Projeto Técnico
-        <div>Estações e medições fictícias.</div>
+        <div>Todos os dados telemétricos apresentados são simulados.</div>
       </Layout.Footer>
     </Layout>
   )

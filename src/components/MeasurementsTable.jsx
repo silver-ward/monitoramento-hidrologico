@@ -46,7 +46,7 @@ export default function MeasurementsTable({
       dataIndex: 'rainfall',
       key: 'status',
       width: '15%',
-      render: (rainfall) => <Tag color={rainfall > 0 ? '#fa4165' : 'default'}>{rainfall > 0 ? 'Chuva' : 'Seco'}</Tag>,
+      render: (rainfall) => <Tag color={rainfall > 0 ? 'magenta' : 'default'}>{rainfall > 0 ? 'Chuva' : 'Seco'}</Tag>,
     },
   ]
 
@@ -54,7 +54,7 @@ export default function MeasurementsTable({
     <Card
       title={
         <div>
-          <span className="card-title"><TableOutlined /> Consulta Analítica de Medições</span>
+          <span className="card-title"><TableOutlined /> Consulta Analítica de Medições (RF10 e RF11)</span>
           <div><Typography.Text type="secondary">Total de registos encontrados: {readings.length}</Typography.Text></div>
         </div>
       }
