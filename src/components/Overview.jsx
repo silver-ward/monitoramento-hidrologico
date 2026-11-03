@@ -65,22 +65,6 @@ export default function Overview({ station, readings, lastReading, timeRange, on
             </Typography.Text>
           </Card>
         </Col>
-        <Col xs={24} md={8}>
-          <Card className="stat-card stat-status">
-            <Typography.Text className="field-label">
-              <WifiOutlined /> Estado de Transmissão
-            </Typography.Text>
-            <div className="status-line">
-              <Tag color={station.status === 'Operando' ? 'success' : 'error'}>{station.status}</Tag>
-              {lastReading && (
-                <Typography.Text type="secondary">
-                  Cota segura ({((lastReading.level / station.alertLevel) * 100).toFixed(0)}% do alerta)
-                </Typography.Text>
-              )}
-            </div>
-            <Typography.Text type="secondary">Código Telemétrico: {station.code}</Typography.Text>
-          </Card>
-        </Col>
       </Row>
     </div>
   )
