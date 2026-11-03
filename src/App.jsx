@@ -28,7 +28,7 @@ function AppContent() {
       key: 'operational-disclaimer',
       message: 'Estações e medições fictícias.',
       description: '',
-      duration: 5,
+      duration: 3,
       placement: 'topLeft',
     })
   }, [notification])

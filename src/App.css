@@ -3,7 +3,6 @@
 }
 
 .ant-notification-topLeft {
-  top: calc(50vh - 60px) !important;
   right: auto !important;
   left: 16px !important;
 }
