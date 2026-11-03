@@ -378,7 +378,16 @@
 
   .mobile-menu-button {
     display: inline-flex;
+    align-items: center;
+    gap: 12px;
     color: var(--brand-ink);
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .mobile-menu-button .anticon {
+    font-size: 24px;
   }
 
   .control-strip {

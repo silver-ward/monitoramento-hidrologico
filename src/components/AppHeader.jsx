@@ -2,10 +2,13 @@ import { useState } from 'react'
 import {
   DashboardOutlined,
   LineChartOutlined,
+  MenuOutlined,
   TableOutlined,
 } from '@ant-design/icons'
 import { Button, Drawer, Menu } from 'antd'
 import cogmoLogo from '../../img/cogmo-logo.png'
+
+const mobileMenuLabel = 'Mais medições'
 
 const pageIcons = {
   overview: <DashboardOutlined />,
@@ -52,10 +55,12 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
           <Button
             className="mobile-menu-button"
             type="text"
-            aria-label="Abrir menu"
-            icon={<LineChartOutlined />}
+            aria-label={`Abrir menu: ${mobileMenuLabel}`}
             onClick={() => setDrawerOpen(true)}
-          />
+          >
+            <span>{mobileMenuLabel}</span>
+            <MenuOutlined />
+          </Button>
         </div>
       </div>
       <Drawer
