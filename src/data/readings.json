@@ -1,0 +1,392 @@
+[
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-01",
+      "name": "Estação Acácia"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T12:00:00Z",
+      "level_m": 1.42,
+      "rain_observed_at": "2026-09-28T12:00:00Z",
+      "rain_mm_h": 0.6
+    }
+  }, 
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-01",
+      "name": "Estação Acácia"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T13:00:00Z",
+      "level_m": 1.45,
+      "rain_observed_at": "2026-09-28T13:00:00Z",
+      "rain_mm_h": 1.2
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-01",
+      "name": "Estação Acácia"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T14:00:00Z",
+      "level_m": 1.48,
+      "rain_observed_at": "2026-09-28T14:00:00Z",
+      "rain_mm_h": 2.5
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-01",
+      "name": "Estação Acácia"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T15:00:00Z",
+      "level_m": 1.53,
+      "rain_observed_at": "2026-09-28T15:00:00Z",
+      "rain_mm_h": 3.8
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-01",
+      "name": "Estação Acácia"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T16:00:00Z",
+      "level_m": 1.50,
+      "rain_observed_at": "2026-09-28T16:00:00Z",
+      "rain_mm_h": 1.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-01",
+      "name": "Estação Acácia"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T17:00:00Z",
+      "level_m": 1.47,
+      "rain_observed_at": "2026-09-28T17:00:00Z",
+      "rain_mm_h": 0.4
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-01",
+      "name": "Estação Acácia"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T18:00:00Z",
+      "level_m": 1.44,
+      "rain_observed_at": "2026-09-28T18:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-01",
+      "name": "Estação Acácia"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T19:00:00Z",
+      "level_m": 1.41,
+      "rain_observed_at": "2026-09-28T19:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-01",
+      "name": "Estação Acácia"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T20:00:00Z",
+      "level_m": 1.39,
+      "rain_observed_at": "2026-09-28T20:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-01",
+      "name": "Estação Acácia"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T21:00:00Z",
+      "level_m": 1.38,
+      "rain_observed_at": "2026-09-28T21:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-02",
+      "name": "Estação Balsa"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T12:00:00Z",
+      "level_m": 2.10,
+      "rain_observed_at": "2026-09-28T12:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-02",
+      "name": "Estação Balsa"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T13:00:00Z",
+      "level_m": 2.12,
+      "rain_observed_at": "2026-09-28T13:00:00Z",
+      "rain_mm_h": 0.2
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-02",
+      "name": "Estação Balsa"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T14:00:00Z",
+      "level_m": 2.15,
+      "rain_observed_at": "2026-09-28T14:00:00Z",
+      "rain_mm_h": 1.5
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-02",
+      "name": "Estação Balsa"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T15:00:00Z",
+      "level_m": 2.20,
+      "rain_observed_at": "2026-09-28T15:00:00Z",
+      "rain_mm_h": 3.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-02",
+      "name": "Estação Balsa"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T16:00:00Z",
+      "level_m": 2.25,
+      "rain_observed_at": "2026-09-28T16:00:00Z",
+      "rain_mm_h": 4.2
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-02",
+      "name": "Estação Balsa"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T17:00:00Z",
+      "level_m": 2.22,
+      "rain_observed_at": "2026-09-28T17:00:00Z",
+      "rain_mm_h": 1.8
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-02",
+      "name": "Estação Balsa"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T18:00:00Z",
+      "level_m": 2.18,
+      "rain_observed_at": "2026-09-28T18:00:00Z",
+      "rain_mm_h": 0.5
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-02",
+      "name": "Estação Balsa"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T19:00:00Z",
+      "level_m": 2.15,
+      "rain_observed_at": "2026-09-28T19:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-02",
+      "name": "Estação Balsa"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T20:00:00Z",
+      "level_m": 2.12,
+      "rain_observed_at": "2026-09-28T20:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-02",
+      "name": "Estação Balsa"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T21:00:00Z",
+      "level_m": 2.10,
+      "rain_observed_at": "2026-09-28T21:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-03",
+      "name": "Estação Cerejeira"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T12:00:00Z",
+      "level_m": 0.85,
+      "rain_observed_at": "2026-09-28T12:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-03",
+      "name": "Estação Cerejeira"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T13:00:00Z",
+      "level_m": 0.84,
+      "rain_observed_at": "2026-09-28T13:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-03",
+      "name": "Estação Cerejeira"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T14:00:00Z",
+      "level_m": 0.86,
+      "rain_observed_at": "2026-09-28T14:00:00Z",
+      "rain_mm_h": 0.4
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-03",
+      "name": "Estação Cerejeira"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T15:00:00Z",
+      "level_m": 0.90,
+      "rain_observed_at": "2026-09-28T15:00:00Z",
+      "rain_mm_h": 1.2
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-03",
+      "name": "Estação Cerejeira"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T16:00:00Z",
+      "level_m": 0.95,
+      "rain_observed_at": "2026-09-28T16:00:00Z",
+      "rain_mm_h": 2.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-03",
+      "name": "Estação Cerejeira"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T17:00:00Z",
+      "level_m": 0.93,
+      "rain_observed_at": "2026-09-28T17:00:00Z",
+      "rain_mm_h": 0.8
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-03",
+      "name": "Estação Cerejeira"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T18:00:00Z",
+      "level_m": 0.90,
+      "rain_observed_at": "2026-09-28T18:00:00Z",
+      "rain_mm_h": 0.2
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-03",
+      "name": "Estação Cerejeira"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T19:00:00Z",
+      "level_m": 0.88,
+      "rain_observed_at": "2026-09-28T19:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-03",
+      "name": "Estação Cerejeira"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T20:00:00Z",
+      "level_m": 0.86,
+      "rain_observed_at": "2026-09-28T20:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  },
+  {
+    "data_mode": "simulation",
+    "station": {
+      "id": "EST-03",
+      "name": "Estação Cerejeira"
+    },
+    "latest": {
+      "level_observed_at": "2026-09-28T21:00:00Z",
+      "level_m": 0.85,
+      "rain_observed_at": "2026-09-28T21:00:00Z",
+      "rain_mm_h": 0.0
+    }
+  }
+]

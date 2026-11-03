@@ -5,7 +5,7 @@ import MeasurementCharts from './components/MeasurementCharts.jsx'
 import MeasurementsTable from './components/MeasurementsTable.jsx'
 import Overview from './components/Overview.jsx'
 import StationControls from './components/StationControls.jsx'
-import { stations } from './data/stations.js'
+import { stations } from './data/readings.js'
 import './App.css'
 
 const pageItems = [

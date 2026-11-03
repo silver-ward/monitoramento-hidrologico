@@ -1,5 +1,4 @@
 import {
-  AlertOutlined,
   EnvironmentOutlined,
   FieldTimeOutlined,
   ReloadOutlined,
@@ -30,7 +29,7 @@ export default function StationControls({
                 onChange={onStationChange}
                 options={stations.map((item) => ({
                   value: item.id,
-                  label: `${item.name} (${item.status})`,
+                  label: `${item.name} (${item.id})`,
                 }))}
               />
             </div>
@@ -60,15 +59,12 @@ export default function StationControls({
       </section>
       <div className="station-details">
         <div className="control-inner">
-          <Descriptions className="station-metadata" size="small" column={{ xs: 1, md: 2, xl: 4 }}>
-            <Descriptions.Item label={<><EnvironmentOutlined /> Município</>}>
-              {station.city} - {station.state}
+          <Descriptions className="station-metadata" size="small" column={{ xs: 1, md: 2, xl: 3 }}>
+            <Descriptions.Item label={<><EnvironmentOutlined /> Código da estação</>}>
+              {station.id}
             </Descriptions.Item>
-            <Descriptions.Item label={<><ThunderboltOutlined /> Corpo Hídrico</>}>
-              {station.river}
-            </Descriptions.Item>
-            <Descriptions.Item label={<><AlertOutlined /> Cota de Alerta</>}>
-              {station.alertLevel.toFixed(2)} m
+            <Descriptions.Item label={<><ThunderboltOutlined /> Origem dos dados</>}>
+              {station.dataMode === 'simulation' ? 'Simulação' : station.dataMode}
             </Descriptions.Item>
             <Descriptions.Item label={<><FieldTimeOutlined /> Fuso</>}>
               América/São Paulo (BRT, UTC-3)
