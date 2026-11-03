@@ -10,7 +10,7 @@ import { Button, Card, Empty, Row, Col, Statistic, Tag, Typography } from 'antd'
 function LevelChart({ readings, compact = false }) {
   const config = {
     data: readings,
-    xField: 'labelHora',
+    xField: 'labelCompleto',
     yField: 'level',
     shapeField: 'smooth',
     height: compact ? 200 : 240,

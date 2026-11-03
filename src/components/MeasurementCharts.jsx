@@ -23,7 +23,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
 
   const levelConfig = {
     data: readings,
-    xField: 'labelHora',
+    xField: 'labelCompleto',
     yField: 'level',
     shapeField: 'smooth',
     height: 240,
@@ -37,7 +37,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
   }
   const rainfallConfig = {
     data: readings,
-    xField: 'labelHora',
+    xField: 'labelCompleto',
     yField: 'rainfall',
     height: 220,
     axis: {
