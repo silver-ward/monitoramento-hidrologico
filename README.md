@@ -1,204 +1,146 @@
-# 🚀 Projeto FrontEnd — Monitoramento Hidrológico (Cogmo Technology)
+# 🌊 Projeto FrontEnd - Monitoramento Hidrológico (Cogmo Technology)
 
-Aplicação FrontEnd desenvolvida em ReactJS para o gerenciamento, visualização de séries históricas e análise de dados de estações hidrológicas, níveis de rios e índices pluviométricos (precipitação), conforme desafio proposto pela Cogmo Technology no contexto do programa Bolsa Futuro Digital (BFD).
-
----
-
-## 🌐 Deploy da Aplicação
-
-* 🔗 **FrontEnd (produção):** [https://monitoramento-hidrologico.vercel.app/](https://monitoramento-hidrologico.vercel.app/)
-* 🔗 **BackEnd (API REST):** [https://api-cogmo-hidro.vercel.app/](https://api-cogmo-hidro.vercel.app/)
+Aplicação FrontEnd desenvolvida em **React** para o monitoramento de estações hidrológicas, exibindo níveis de rios, precipitação recente, gráficos de séries históricas e tabelas de consulta analítica de medições, como parte dos desafios do **Bolsa Futuro Digital (BFD)**.
 
 ---
 
-## 📦 Repositórios do Projeto
+## 🚀 Deploy da Aplicação
 
-* 🔗 **FrontEnd (ReactJS + Vite):** [https://github.com/silver-ward/monitoramento-hidrologico](https://github.com/silver-ward/monitoramento-hidrologico)
-* 🔗 **BackEnd (Node.js + Express):** [https://github.com/silver-ward/backend-monitoramento-hidrologico](https://github.com/silver-ward/backend-monitoramento-hidrologico)
-
----
-
-## 🧭 Visão Geral do Projeto
-
-* **Domínio:** Monitoramento Hidrológico e Telemetria Meteorológica
-* **Entidades principais:** Estação Hidrológica, Medições (Nível do Rio), Precipitação e Transmissão
-* **Objetivo:** Desenvolver uma aplicação FrontEnd moderna e responsiva com foco em Data Visualization (gráficos interativos de séries temporais), consumo de API REST e excelente usabilidade de navegação
-* **Persistência:** Realizada via BackEnd (API REST)
+* **FrontEnd (Produção):** [Acesse o projeto na Vercel](https://hydrocogmo.vercel.app/) 
 
 ---
 
-## 🧰 Tecnologias Utilizadas
+## 📂 Repositórios do Projeto
+
+* **FrontEnd (React):** [Repositório GitHub do Monitoramento Hidrológico](https://github.com/silver-ward/monitoramento-hidrologico)
+
+---
+
+## 🎯 Visão Geral do Projeto
+
+* **Domínio:** Monitoramento Hidrológico e Ambiental.
+* **Entidades Principais:** Estações Hidrológicas, Nível do Rio (metros), Precipitação (mm/h) e Estado de Transmissão.
+* **Objetivo:** Desenvolver uma interface web interativa para consumo de dados hidrológicos, oferecendo visualização gráfica e analítica para apoio à tomada de decisão.
+
+---
+
+## 💻 Tecnologias Utilizadas
 
 ### FrontEnd
-* ReactJS
-* Vite
-* JavaScript (ES6+)
-* CSS3 (Design System customizado em tons de roxo/rosa)
-* Recharts (Data Visualization / Gráficos interativos)
-* Lucide React / Tabler Icons
+* **ReactJS**
+* **JavaScript (ES6+)**
+* **Ant Design (AntD)** / Componentes customizados
+* **Chart Libraries (D3 / Recharts)** para os gráficos de nível e chuva
+---
+## 📷 Telas da Aplicação
 
-### BackEnd (Integração)
-* Node.js
-* Express
-* API REST
-* Deploy em Vercel / Render
+As telas abaixo ilustram as principais funcionalidades do sistema de monitoramento hidrológico:
+
+### 1. Visão Geral (Dashboard Main)
+Painel principal exibindo o seletor da estação, metadados operacionais, seletor de janela de tempo, cards de último nível registrado, precipitação recente e estado de transmissão.
+
+<p align="center"> <img width="1912" height="866" alt="01" src="https://github.com/user-attachments/assets/fa174480-9791-46ec-a1be-92dd90271c4c" />
+
+</p>
 
 ---
 
-## 🎯 Desafio Atendido (Monitoramento e Análise)
+### 2. Histórico de Medições (Gráficos Analíticos)
+Página focada na análise profunda com gráficos interativos de área (Nível do Rio em metros) e gráficos de barras para a precipitação recente.
 
-O projeto atende integralmente ao desafio proposto, contemplando:
+<p align="center">
+ <img width="1677" height="866" alt="02" src="https://github.com/user-attachments/assets/7e08b9a7-15e8-4867-bc2b-0feb40270b86" />
 
-* ✅ Visualização Geral da Estação (Nível Atual, Precipitação e Status)
-* ✅ Gráficos de Tendência Rápida e Séries Históricas
-* ✅ Tabela Analítica de Medições com Filtros Temporais e Climáticos
-* ✅ Responsividade completa com Menu Lateral (Drawer/Hambúrguer) para Mobile
-* ✅ Modal Institucional de Contato ("Vamos Conversar?")
+ ---
 
----
+<img width="1662" height="855" alt="02 1" src="https://github.com/user-attachments/assets/534f6f58-3334-466d-9362-66540c223796" />
 
-## 📋 Requisitos Funcionais (RF)
-
-### Estações e Navegação
-* **RF01** — Selecionar Estação Hidrológica
-* **RF02** — Exibir metadados da estação (Município, Corpo Hídrico, Cota de Alerta e Fuso Horário)
-* **RF03** — Navegar entre as páginas através da barra superior (Visão Geral, Histórico de Medições, Consulta de Medições)
-* **RF04** — Alternar entre janelas de tempo temporais (12 Horas, 24 Horas, 48 Horas)
-* **RF05** — Atualizar dados manualmente via botão de refresh
-
-### Métricas e Gráficos
-* **RF06** — Visualizar cartão com Último Nível Registrado e Horário da Medição
-* **RF07** — Visualizar cartão com Precipitação Recente (mm/h)
-* **RF08** — Visualizar Estado de Transmissão e indicador de cota segura
-* **RF09** — Visualizar gráfico de Tendência Rápida do Nível (Últimas 24h) na Visão Geral
-* **RF10** — Consultar Série Histórica completa do Nível do Rio (metros) em gráfico de área
-* **RF11** — Consultar Série Histórica de Precipitação (mm/h) em gráfico de barras independentes com tooltip
-
-### Consulta Analítica e Interações
-* **RF12** — Visualizar Tabela Analítica de Medições com contagem de registros
-* **RF13** — Filtrar medições da tabela (Todos, Com Chuva, Sem Chuva)
-* **RF14** — Ordenar listagem por data e horário
-* **RF15** — Abrir modal de suporte e canal institucional ("Vamos Conversar?")
+</p>
 
 ---
 
-## ⚙️ Requisitos Não Funcionais (RNF)
+### 3. Consulta Analítica de Medições
+Listagem em tabela das medições registradas, permitindo ordenação rápida, visualização do estado e aplicação de filtros detalhados.
 
-* **RNF01** — Aplicação desenvolvida em ReactJS com Vite
-* **RNF02** — Interface construída com Design System próprio (paleta roxo/rosa)
-* **RNF03** — Comunicação assíncrona com BackEnd via API REST
-* **RNF04** — Biblioteca Recharts para renderização de gráficos
-* **RNF05** — Interface 100% responsiva (Desktop e Mobile)
-* **RNF06** — Código organizado por componentes e responsabilidades (SPA)
+<p align="center">   <img width="1536" height="867" alt="03" src="https://github.com/user-attachments/assets/f112ee94-e3cb-4611-baa2-8a918bad1f1a" />
+
+</p>
 
 ---
+## 📊 Modelagem dos Dados
+
+### Diagrama de Classes
+O diagrama de classes abaixo representa o modelo conceitual utilizado no projeto para estruturar as informações das estações e medições hidrológicas.
+
+ <img width="2085" height="1635" alt="graph" src="https://github.com/user-attachments/assets/839cd554-04b8-48c3-adc1-3e79ec80413e" />
+
+---
+
+## 🗂️ Estrutura do Projeto (FrontEnd)
+
+A organização das pastas e arquivos do projeto segue a seguinte estrutura:
+
 ```text
 monitoramento-hidrologico/
-├── 📂 public/             # Arquivos estáticos (favicon, imagens)
-├── 📂 src/
-│   ├── 📂 assets/         # Imagens, logotipos (ex: logo da cogmo)
-│   ├── 📂 components/     # Componentes reutilizáveis da interface
-│   │   ├── Header.jsx     # Barra superior com logo, menu de abas e botão Suporte
-│   │   ├── Sidebar.jsx    # Menu lateral (responsivo/mobile)
-│   │   ├── StationCard.jsx# Seletor de estação hidrológica e dados gerais
-│   │   ├── TimeFilter.jsx # Botões de janela de tempo (12h, 24h, 48h)
-│   │   ├── NoticeBox.jsx  # Caixa de aviso de dados fictícios
-│   │   ├── MetricCard.jsx # Cards de métricas (Nível, Precipitação, Transmissão)
-│   │   ├── ChartSection.jsx# Gráficos de tendência rápida
-│   │   └── SupportModal.jsx# Modal de contato de suporte
-│   ├── 📂 pages/          # Páginas principais da aplicação
-│   │   ├── VisaoGeral.jsx # Tela principal mostrada no vídeo
-│   │   ├── HistoricoMedicoes.jsx # Página de histórico
-│   │   └── ConsultaMedicoes.jsx  # Página de consulta
-│   ├── 📂 data/           # Mock data (dados fictícios das estações e medições)
-│   │   └── stationsData.js
-│   ├── 📂 styles/         # Estilos globais (se necessário)
-│   ├── App.jsx            # Componente raiz com as rotas/abas
-│   └── main.jsx           # Ponto de entrada do React
+├── img/
+│   ├── cogmo-logo.png
+│   ├── ifb-logo.png
+│   └── ...
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── AppHeader.jsx
+│   │   ├── MeasurementCharts.jsx
+│   │   ├── MeasurementTable.jsx
+│   │   ├── Overview.jsx
+│   │   └── StationControls.jsx
+│   ├── data/
+│   │   └── stations.js
+│   ├── App.css
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
 ├── .env
 ├── package.json
-└── vite.config.js
-
-### 🖼️ Telas da Aplicação
-
-As telas abaixo ilustram as principais funcionalidades e a navegação do sistema.
-
-### Tela 1 — Visão Geral (Dashboard Main)
-Painel principal exibindo o seletor da estação ("Estação Foz do Vale"), metadados operacionais, seletor de janela de tempo, cards de métricas (Nível, Precipitação e Transmissão) e o gráfico de tendência rápida do nível do rio nas últimas 24h.
-
-<img width="1019" alt="Visão geral" src="https://github.com/user-attachments/assets/7a065ef3-881d-4202-85a0-0dae01e867e3" />
-
-### Tela 2 — Histórico de Medições (Gráficos Análiticos)
-Página focada na análise profunda com gráficos interativos de área (Nível do Rio em metros - RF06) e gráfico de barras com tooltips (Série Histórica de Precipitação em mm/h - RF07).
-
-<img width="1080" alt="Historico de medição" src="https://github.com/user-attachments/assets/75d4da60-2f31-40b1-9ff8-f4dff1a38aaf" />
-
-### Tela 3 — Consulta Analítica de Medições
-Listagem em tabela das medições registradas, permitindo ordenação rápida, visualização do estado (Seco/Chuva) e aplicação dos filtros climáticos ("Com Chuva", "Sem Chuva" e "Todos").
-
-<img width="1080" alt="Consulta de medições" src="https://github.com/user-attachments/assets/34227f4b-97f0-458a-bc8e-902044a1eb56" />
-
-### Tela 4 — Menu de Navegação e Responsividade (Mobile)
-Interface adaptada para telas menores com menu suspenso tipo gaveta (Drawer), garantindo acesso prático a todas as páginas e ao botão de contato em dispositivos móveis.
-
-<img width="1080" alt="Menu Mobile" src="https://github.com/user-attachments/assets/363f3246-3bbb-4dff-b7de-df65efe8e25c" />
-
-### Tela 5 — Modal de Contato ("Vamos Conversar?")
-Modal sobreposto acionado ao clicar no botão "Vamos Conversar?", disponibilizando o canal e-mail institucional para suporte técnico e informações gerais.
-
-<img width="1080" alt="Modal Vamos Conversar" src="https://github.com/user-attachments/assets/0a429c50-2240-42f8-879f-194cca91219d" />
-
+└── README.md
+```
 ---
 
-## 🔗 Integração com Backend
+## 💻 Execução Local
 
-* **API Base:** `https://api-cogmo-hidro.vercel.app/v1`
-* **Operações utilizadas:**
-  * `GET /stations` — Listagem de estações hidrológicas
-  * `GET /stations/:id/measurements` — Histórico e medições por janela de tempo (12h, 24h, 48h)
-  * `GET /stations/:id/summary` — Indicadores de resumo e estado de transmissão
+Para executar este projeto em sua máquina localmente, siga os passos abaixo:
 
----
-
-## 🖥️ Como Executar o Projeto Localmente
-
-### Pré-requisitos
-Antes de começar, certifique-se de ter as seguintes ferramentas instaladas no seu computador:
-* [Node.js](https://nodejs.org/) (versão 18 ou superior recomendada)
-* [Git](https://git-scm.com/)
-* Gerenciador de pacotes `npm` (incluído no Node.js)
-
-### Passo a Passo de Instalação
-
-1. **Clonar o repositório:**
 ```bash
-git clone https://github.com/silver-ward/monitoramento-hidrologico.git
+# Clone este repositório
+git clone [https://github.com/RebecaNM30/monitoramento-hidrologico.git](https://github.com/RebecaNM30/monitoramento-hidrologico.git)
 
+# Entre na pasta do projeto
 cd monitoramento-hidrologico
 
-cp .env.example .env
-
+# Instale as dependências
 npm install
 
+# Inicie o servidor de desenvolvimento
 npm run dev
-
-npm run build
-
-```bash
-npm install
 ```
-
 ---
 
+## 👥 Autoria
+
+| Logo | Informações |
+| :---: | :--- |
+| <img width="100" height="100" alt="bfd-logo png" src="https://github.com/user-attachments/assets/4a0d47ed-bf1f-4f21-9b61-b5a3ddd9425a" />| **Projeto:** Bolsa Futuro Digital (BFD)<br>**Área:** Front-End / Monitoramento Hidrológico e Meteorológico |
+| <img width="100" height="100" alt="ifb-logo jpeg" src="https://github.com/user-attachments/assets/e2c09d46-2785-4d95-9f1c-f2973eb528d3" />| **Instituição:** Instituto Federal de Brasília (IFB) - Campus Taguatinga |
+<img width="100" height="100" alt="hbr-logo jpeg" src="https://github.com/user-attachments/assets/9b890101-7953-4ebd-90de-5a48f352712d" />  |**Realização:** Instituto Hardware BR<br>**Autores:** Rebeca Marinho, Eduardo Ribeiro e Leonilson Jedi |
 ---
 
-## ⚖️ Licença e Parcerias
+# 📝 Considerações Finais
 
-Projeto desenvolvido por **Rebeca**, **Eduardo** e **Leonilson** para a **Cogmo Technology** no âmbito do programa **Bolsa Futuro Digital**, oferecido pelo **Instituto Hardware Brasil** nas dependências do **Instituto Federal de Brasília (IFB - Campus Taguatinga)**.
+Este projeto demonstra:
+* **Aplicação de conceitos avançados** de ReactJS e componentes visuais interativos.
+* **Integração e visualização** de séries temporais e dados meteorológicos/hidrológicos através de gráficos analíticos (Recharts).
+* **Organização de código** limpa, modular e componentizada seguindo padrões profissionais de mercado.
+* **Documentação estruturada** de arquitetura e modelagem de software para sistemas web.
 
 
-
-<img width="204" height="192" alt="hb" src="https://github.com/user-attachments/assets/543ed669-0d05-4532-b931-f4db93783d91" />
-<img width="447" height="447" alt="bolsa" src="https://github.com/user-attachments/assets/8db20672-75cc-498d-b94f-8d4a264c28a1" />
-<img width="308" height="225" alt="IFB" src="https://github.com/user-attachments/assets/b59d6ea4-0ab2-4efb-a5d1-c901497caa5b" />
 
