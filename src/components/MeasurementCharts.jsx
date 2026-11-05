@@ -64,10 +64,10 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
   return (
     <div className="page-stack">
       <Card
-        title={<span className="card-title"><LineChartOutlined /> Série Histórica do Nível do Rio (metros)</span>}
-        extra={<Typography.Text type="secondary">Fuso Horário: BRT (UTC-3)</Typography.Text>}
+        title={<span className="card-title"><LineChartOutlined />Histórico de Nível</span>}
+        extra={<Typography.Text type="secondary"></Typography.Text>}
       >
-        <ResponsiveContainer width="100%" height={280}>
+        <ResponsiveContainer width="100%" aspect={1.6}>
           <AreaChart data={chartReadings} margin={{ top: 8, right: 12, bottom: 24, left: 8 }}>
             <defs>
               <linearGradient id="levelFill" x1="0" y1="0" x2="0" y2="1">
@@ -86,8 +86,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
               minTickGap={24}
               angle={-30}
               textAnchor="end"
-              height={48}
-              tick={{ fill: '#706783', fontSize: 11 }}
+              tick={{ fill: '#706783', fontSize: '0.6875rem' }}
               axisLine={{ stroke: '#d9d2e3' }}
               tickLine={false}
             />
@@ -96,7 +95,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
               tick={{ fill: '#706783', fontSize: 11 }}
               axisLine={false}
               tickLine={false}
-              width={56}
+              width="auto"
               domain={['auto', 'auto']}
             />
             <Tooltip
@@ -118,10 +117,10 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
         </ResponsiveContainer>
       </Card>
       <Card
-        title={<span className="card-title"><CloudOutlined /> Série Histórica de Precipitação (mm/h)</span>}
-        extra={<Typography.Text type="secondary">Série independente de precipitação</Typography.Text>}
+        title={<span className="card-title"><CloudOutlined />Histórico de Precipitação</span>}
+        extra={<Typography.Text type="secondary"></Typography.Text>}
       >
-        <ResponsiveContainer width="100%" height={280}>
+        <ResponsiveContainer width="100%" aspect={1.6}>
           <BarChart data={chartReadings} margin={{ top: 8, right: 12, bottom: 24, left: 8 }}>
             <CartesianGrid vertical={false} stroke="#eee8f5" />
             <XAxis
@@ -134,8 +133,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
               minTickGap={24}
               angle={-30}
               textAnchor="end"
-              height={48}
-              tick={{ fill: '#706783', fontSize: 11 }}
+              tick={{ fill: '#706783', fontSize: '0.6875rem' }}
               axisLine={{ stroke: '#d9d2e3' }}
               tickLine={false}
             />
@@ -144,7 +142,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
               tick={{ fill: '#706783', fontSize: 11 }}
               axisLine={false}
               tickLine={false}
-              width={56}
+              width="auto"
               domain={[0, 'auto']}
             />
             <Tooltip

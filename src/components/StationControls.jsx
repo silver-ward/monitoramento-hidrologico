@@ -20,7 +20,7 @@ export default function StationControls({
   return (
     <>
       <section className="control-strip">
-        <div className="control-inner">
+        <div className="control-inner container">
           <div className="selectors-row">
             <div className="control-field station-field">
               <Typography.Text className="field-label">Estação Hidrológica</Typography.Text>
@@ -63,7 +63,7 @@ export default function StationControls({
         </div>
       </section>
       <div className="station-details">
-        <div className="control-inner">
+        <div className="control-inner container">
           <Descriptions className="station-metadata" size="small" column={{ xs: 1, md: 2, xl: 3 }}>
             <Descriptions.Item label={<><EnvironmentOutlined /> Código da estação</>}>
               {station.id}

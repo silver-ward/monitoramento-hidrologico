@@ -4,12 +4,17 @@
 
 .ant-notification-topLeft {
   right: auto !important;
-  left: 16px !important;
+  left: 4% !important;
 }
 
 .app-layout {
   min-height: 100vh;
   background: var(--brand-surface);
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
 }
 
 .app-header {
@@ -21,51 +26,52 @@
   box-shadow: 0 3px 16px rgb(38 25 79 / 4%);
 }
 
-.header-inner,
-.control-inner,
-.content-area {
-  width: min(1200px, 100%);
-  margin: 0 auto;
-}
-
 .header-inner {
-  min-height: 66px;
-  padding: 8px 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 4%;
+  height: 2.75rem;
+  padding: 0 5%;
 }
 
 .brand {
   display: flex;
-  flex: 0 0 auto;
+  flex: 0 1 32%;
   text-decoration: none;
 }
 
 .brand-logo {
   display: block;
-  width: 124px;
+  width: 100%;
   height: auto;
 }
 
-.desktop-nav {
-  flex: 1;
-  justify-content: center;
-  min-width: 0;
-  border-bottom: 0;
+.header-inner .brand-logo {
+  width: 4.9rem;
 }
 
-.desktop-nav .ant-menu-item {
+.mobile-drawer .brand-logo {
+  width: 24.58vw;
+}
+
+.desktop-nav,
+.contact-button {
+  display: none;
+}
+
+.mobile-menu-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--brand-ink);
+  font-size: 0.875rem;
   font-weight: 600;
+  white-space: nowrap;
 }
 
-.desktop-nav .ant-menu-item-selected {
-  color: var(--brand-coral);
-}
-
-.desktop-nav .ant-menu-item::after {
-  border-bottom-width: 3px;
+.mobile-menu-button .anticon {
+  font-size: 1.5rem;
 }
 
 .header-actions {
@@ -79,13 +85,8 @@
   background: var(--brand-muted);
 }
 
-.mobile-menu-button {
-  display: none;
-  color: var(--brand-ink);
-}
-
 .drawer-contact {
-  margin-top: 24px;
+  margin-top: 1.5rem;
 }
 
 .mobile-drawer .ant-drawer-section {
@@ -147,49 +148,57 @@
 
 .control-strip {
   position: sticky;
-  top: 66px;
+  top: 2.75rem;
   z-index: 19;
-  padding: 16px 20px 10px;
+  padding: 1.5vw 5% 2%;
   background: #fff;
   border-bottom: 1px solid var(--brand-border);
   box-shadow: 0 3px 12px rgb(38 25 79 / 3%);
 }
 
 .station-details {
-  padding: 0 20px 10px;
+  padding: 0 5% 2%;
   background: #fff;
   border-bottom: 1px solid var(--brand-border);
 }
 
 .selectors-row {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 16px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5vw;
 }
 
 .control-field {
   display: flex;
+  width: 100%;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.25rem;
 }
 
-.station-field {
-  width: min(100%, 450px);
+.station-field,
+.station-field .ant-select {
+  width: 100%;
 }
 
 .field-label {
   color: var(--brand-muted);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.025rem;
   text-transform: uppercase;
 }
 
 .time-controls {
   display: flex;
+  width: 100%;
   align-items: center;
-  gap: 8px;
+  gap: 2%;
+}
+
+.time-controls .ant-segmented {
+  flex: 1;
+  min-width: 0;
 }
 
 .time-controls .ant-segmented-item-selected,
@@ -201,33 +210,37 @@
 
 .station-metadata {
   margin-top: 0;
-  padding-top: 10px;
+  padding-top: 2%;
 }
 
 .station-metadata .ant-descriptions-item-label,
 .station-metadata .ant-descriptions-item-content {
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .content-area {
   flex: 1;
-  padding: 24px 20px;
+  padding: 4% 5%;
 }
 
 .page-stack {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 1rem;
 }
 
 .ant-card {
   border-color: var(--brand-border);
-  border-radius: 10px;
+  border-radius: 0.625rem;
   box-shadow: 0 5px 18px rgb(38 25 79 / 4%);
 }
 
 .ant-card .ant-card-head {
   border-bottom-color: var(--brand-border);
+}
+
+.ant-card .ant-card-head-title {
+  white-space: normal;
 }
 
 .stats-grid {
@@ -239,36 +252,36 @@
 }
 
 .stat-level {
-  border-left: 4px solid var(--brand-purple);
+  border-left: 0.25rem solid var(--brand-purple);
 }
 
 .stat-rain {
-  border-left: 4px solid var(--brand-coral);
+  border-left: 0.25rem solid var(--brand-coral);
 }
 
 .stat-status {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
-  border-left: 4px solid #16805d;
+  gap: 0.625rem;
+  border-left: 0.25rem solid #16805d;
 }
 
 .stat-status .ant-card-body {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .stat-card .ant-statistic-title {
   color: var(--brand-muted);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
 }
 
 .stat-card .ant-statistic-title .anticon,
 .stat-status .field-label .anticon {
-  margin-right: 6px;
+  margin-right: 0.375rem;
 }
 
 .stat-level .ant-statistic-title .anticon {
@@ -285,20 +298,20 @@
 
 .stat-card .ant-statistic-content {
   color: var(--brand-ink);
-  font-size: 27px;
+  font-size: 1.6875rem;
   font-weight: 700;
 }
 
 .stat-card .ant-statistic-content-suffix,
 .stat-card > .ant-card-body > .ant-typography {
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .status-line {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .card-title {
@@ -307,23 +320,44 @@
 }
 
 .card-title .anticon {
-  margin-right: 7px;
+  margin-right: 0.4375rem;
 }
 
 .empty-card .ant-card-body {
-  padding: 40px 20px;
+  padding: 10% 5%;
 }
 
 .empty-icon {
   color: var(--brand-purple);
-  font-size: 34px;
+  font-size: 2.125rem;
 }
 
 .table-actions {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.table-actions .ant-segmented {
+  width: 100%;
+}
+
+.measurements-card .ant-card-head-wrapper {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.measurements-card .ant-card-head-title {
+  width: 100%;
+  padding-block: 4.5%;
+}
+
+.measurements-card .ant-card-extra {
+  width: 100%;
+  margin-inline-start: 0;
+  padding-top: 0;
 }
 
 .level-value {
@@ -337,11 +371,11 @@
 }
 
 .app-footer {
-  padding: 18px 20px;
+  padding: 3% 5%;
   color: rgb(255 255 255 / 80%);
   background: var(--brand-deep-purple);
   text-align: center;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .app-footer strong {
@@ -349,105 +383,60 @@
 }
 
 .app-footer div {
-  margin-top: 5px;
+  margin-top: 0.3125rem;
   opacity: 0.75;
 }
 
 .ant-notification-fade-leave,
-.ant-notification-fade-appear-active
-{
+.ant-notification-fade-appear-active {
   transition: all 1s ease-in-out !important;
   animation-duration: 2s !important;
 }
 
-@media (max-width: 900px) {
-  .header-inner {
-    min-height: 60px;
-    padding: 8px 16px;
-  }
-
-  .brand-logo {
-    width: 110px;
-  }
-
-  .desktop-nav,
-  .contact-button {
-    display: none;
-  }
-
-  .mobile-menu-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--brand-ink);
-    font-size: 14px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
-  .mobile-menu-button .anticon {
-    font-size: 24px;
-  }
-
-  .control-strip {
-    top: 60px;
-    padding: 10px 16px;
-  }
-
-  .selectors-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-
-  .control-field {
-    gap: 4px;
-  }
-
-  .station-field {
-    width: 100%;
-  }
-
-  .time-controls,
-  .time-controls .ant-segmented {
-    width: 100%;
-  }
-
-  .time-controls .ant-segmented {
-    flex: 1;
-  }
-
-  .station-details {
-    padding: 0 16px 8px;
-  }
-
-  .content-area {
-    padding: 16px;
-  }
-
-  .table-actions {
-    justify-content: flex-start;
-  }
-
-  .table-actions .ant-segmented {
-    max-width: 100%;
+@media (min-width: 768px) {
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 600px) {
-  .control-strip {
-    padding: 8px 12px;
+@media (min-width: 860px) {
+  .header-inner.container {
+    width: 100%;
+    max-width: none;
+    gap: 2%;
+    padding-inline: 2%;
   }
 
-  .selectors-row {
-    gap: 6px;
+  .header-inner .brand {
+    flex: 0 0 auto;
   }
 
-  .control-field > .field-label {
+  .desktop-nav {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+    border-bottom: 0;
+  }
+
+  .desktop-nav .ant-menu-item {
+    font-weight: 600;
+  }
+
+  .desktop-nav .ant-menu-item-selected {
+    color: var(--brand-coral);
+  }
+
+  .desktop-nav .ant-menu-item::after {
+    border-bottom-width: 3px;
+  }
+
+  .contact-button {
+    display: inline-flex;
+  }
+
+  .mobile-menu-button {
     display: none;
-  }
-
-  .station-details {
-    padding: 0 12px 8px;
   }
 }

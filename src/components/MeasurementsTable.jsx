@@ -52,10 +52,11 @@ export default function MeasurementsTable({
 
   return (
     <Card
+      className="measurements-card"
       title={
         <div>
-          <span className="card-title"><TableOutlined /> Consulta Analítica de Medições</span>
-          <div><Typography.Text type="secondary">Total de registros encontrados: {readings.length}</Typography.Text></div>
+          <span className="card-title"><TableOutlined />Consulta de Medições</span>
+          <div><Typography.Text type="secondary">{readings.length} resultados</Typography.Text></div>
         </div>
       }
       extra={
@@ -87,7 +88,7 @@ export default function MeasurementsTable({
         columns={columns}
         dataSource={readings}
         locale={{ emptyText: 'Nenhuma medição encontrada para os filtros selecionados.' }}
-        scroll={{ x: 600 }}
+        scroll={{ x: 'max-content' }}
         pagination={{
           current: page,
           pageSize: 10,

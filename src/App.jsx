@@ -104,7 +104,7 @@ function AppContent() {
         refreshing={refreshing}
       />
 
-      <Layout.Content className="content-area">
+      <Layout.Content className="content-area container">
         {currentPage === 'overview' && (
           <Overview
             station={currentStation}

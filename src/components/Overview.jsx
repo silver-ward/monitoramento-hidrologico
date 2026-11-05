@@ -39,7 +39,7 @@ export default function Overview({ station, readings, lastReading, timeRange, on
   return (
     <div className="page-stack">
       <Row gutter={[16, 16]} className="stats-grid">
-        <Col xs={24} md={8}>
+        <Col xs={24} md={12}>
           <Card className="stat-card stat-level">
             <Statistic
               title={<><LineChartOutlined /> Último Nível Registrado</>}
@@ -52,7 +52,7 @@ export default function Overview({ station, readings, lastReading, timeRange, on
             </Typography.Text>
           </Card>
         </Col>
-        <Col xs={24} md={8}>
+        <Col xs={24} md={12}>
           <Card className="stat-card stat-rain">
             <Statistic
               title={<><CloudOutlined /> Precipitação Recente</>}
