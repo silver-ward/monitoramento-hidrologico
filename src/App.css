@@ -37,7 +37,7 @@
 
 .brand {
   display: flex;
-  flex: 0 1 32%;
+  flex: 0 0 auto;
   text-decoration: none;
 }
 
@@ -55,19 +55,64 @@
   width: 24.58vw;
 }
 
-.desktop-nav,
 .contact-button {
   display: none;
+}
+
+.header-nav {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.header-nav-button {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding-inline: 0.625rem;
+  color: var(--brand-ink);
+  white-space: nowrap;
+}
+
+.header-nav-button.selected {
+  color: var(--brand-coral);
+}
+
+.header-nav-button.selected::after {
+  position: absolute;
+  right: 0.625rem;
+  bottom: 0;
+  left: 0.625rem;
+  height: 3px;
+  background: var(--brand-coral);
+  content: '';
+}
+
+.header-nav-measure {
+  position: absolute;
+  top: 0;
+  left: -10000px;
+  display: flex;
+  width: max-content;
+  gap: 0.25rem;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .mobile-menu-button {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
   color: var(--brand-ink);
-  font-size: 0.875rem;
-  font-weight: 600;
-  white-space: nowrap;
+}
+
+.mobile-menu-button > span:first-child {
+  display: none;
 }
 
 .mobile-menu-button .anticon {
@@ -77,6 +122,7 @@
 .header-actions {
   display: flex;
   align-items: center;
+  gap: 0.25rem;
 }
 
 .contact-button,
@@ -420,35 +466,7 @@
     padding-inline: 2%;
   }
 
-  .header-inner .brand {
-    flex: 0 0 auto;
-  }
-
-  .desktop-nav {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    min-width: 0;
-    border-bottom: 0;
-  }
-
-  .desktop-nav .ant-menu-item {
-    font-weight: 600;
-  }
-
-  .desktop-nav .ant-menu-item-selected {
-    color: var(--brand-coral);
-  }
-
-  .desktop-nav .ant-menu-item::after {
-    border-bottom-width: 3px;
-  }
-
   .contact-button {
     display: inline-flex;
-  }
-
-  .mobile-menu-button {
-    display: none;
   }
 }
