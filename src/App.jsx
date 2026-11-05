@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { App as AntdApp, Layout } from 'antd'
 import AppHeader from './components/AppHeader.jsx'
 import MeasurementCharts from './components/MeasurementCharts.jsx'
@@ -15,23 +15,13 @@ const pageItems = [
 ]
 
 function AppContent() {
-  const { modal, notification } = AntdApp.useApp()
+  const { modal } = AntdApp.useApp()
   const [currentPage, setCurrentPage] = useState('overview')
   const [selectedStationId, setSelectedStationId] = useState(stations[0].id)
   const [timeRange, setTimeRange] = useState('24h')
   const [filterRain, setFilterRain] = useState('all')
   const [sortOrder, setSortOrder] = useState('desc')
   const [refreshing, setRefreshing] = useState(false)
-
-  useEffect(() => {
-    notification.info({
-      key: 'operational-disclaimer',
-      message: 'Estações e medições fictícias.',
-      description: '',
-      duration: 3,
-      placement: 'topLeft',
-    })
-  }, [notification])
 
   const currentStation = stations.find((station) => station.id === selectedStationId) ?? stations[0]
   const filteredData = useMemo(() => {
@@ -131,7 +121,6 @@ function AppContent() {
 
       <Layout.Footer className="app-footer">
         <strong>Cogmo Technology</strong> · Projeto Técnico
-        <div>Estações e medições fictícias.</div>
       </Layout.Footer>
     </Layout>
   )
