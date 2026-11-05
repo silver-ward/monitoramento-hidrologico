@@ -11,6 +11,7 @@ export default function StationControls({
   station,
   selectedStationId,
   onStationChange,
+  showTimeRange,
   timeRange,
   onTimeRangeChange,
   onRefresh,
@@ -34,17 +35,21 @@ export default function StationControls({
               />
             </div>
             <div className="control-field">
-              <Typography.Text className="field-label">Janela de Tempo</Typography.Text>
+              {showTimeRange && (
+                <Typography.Text className="field-label">Janela de Tempo</Typography.Text>
+              )}
               <div className="time-controls">
-                <Segmented
-                  value={timeRange}
-                  onChange={onTimeRangeChange}
-                  options={[
-                    { label: '12 Horas', value: '12h' },
-                    { label: '24 Horas', value: '24h' },
-                    { label: '48 Horas', value: '48h' },
-                  ]}
-                />
+                {showTimeRange && (
+                  <Segmented
+                    value={timeRange}
+                    onChange={onTimeRangeChange}
+                    options={[
+                      { label: '12 Horas', value: '12h' },
+                      { label: '24 Horas', value: '24h' },
+                      { label: '48 Horas', value: '48h' },
+                    ]}
+                  />
+                )}
                 <Button
                   aria-label="Atualizar dados"
                   title="Atualizar dados"

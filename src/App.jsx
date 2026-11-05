@@ -97,6 +97,7 @@ function AppContent() {
         station={currentStation}
         selectedStationId={selectedStationId}
         onStationChange={setSelectedStationId}
+        showTimeRange={currentPage === 'charts' || currentPage === 'table'}
         timeRange={timeRange}
         onTimeRangeChange={setTimeRange}
         onRefresh={handleRefresh}
