@@ -24,6 +24,7 @@ export default function StationControls({
           <div className="selectors-row">
             <div className="control-field station-field">
               <Typography.Text className="field-label">Estação Hidrológica</Typography.Text>
+              <div className="station-select-row">
               <Select
                 aria-label="Estação Hidrológica"
                 value={selectedStationId}
@@ -33,32 +34,31 @@ export default function StationControls({
                   label: `${item.name} (${item.id})`,
                 }))}
               />
-            </div>
-            <div className="control-field">
-              {showTimeRange && (
-                <Typography.Text className="field-label">Janela de Tempo</Typography.Text>
-              )}
-              <div className="time-controls">
-                {showTimeRange && (
-                  <Segmented
-                    value={timeRange}
-                    onChange={onTimeRangeChange}
-                    options={[
-                      { label: '12 Horas', value: '12h' },
-                      { label: '24 Horas', value: '24h' },
-                      { label: '48 Horas', value: '48h' },
-                    ]}
-                  />
-                )}
-                <Button
-                  aria-label="Atualizar dados"
-                  title="Atualizar dados"
-                  icon={<ReloadOutlined spin={refreshing} />}
-                  loading={refreshing}
-                  onClick={onRefresh}
-                />
+              <Button
+                aria-label="Atualizar dados"
+                title="Atualizar dados"
+                icon={<ReloadOutlined spin={refreshing} />}
+                loading={refreshing}
+                onClick={onRefresh}
+              />
               </div>
             </div>
+            {showTimeRange && (
+              <div className="control-field">
+              <Typography.Text className="field-label">Janela de Tempo</Typography.Text>
+              <div className="time-controls">
+                <Segmented
+                  value={timeRange}
+                  onChange={onTimeRangeChange}
+                  options={[
+                    { label: '12 Horas', value: '12h' },
+                    { label: '24 Horas', value: '24h' },
+                    { label: '48 Horas', value: '48h' },
+                  ]}
+                />
+              </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
