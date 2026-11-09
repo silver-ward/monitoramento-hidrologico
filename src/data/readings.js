@@ -3,13 +3,15 @@ import records from './readings.json' with { type: 'json' }
 const stationsById = new Map()
 
 for (const record of records) {
-  const { id, name } = record.station
+  const { id, name, river, municipality } = record.station
   let station = stationsById.get(id)
 
   if (!station) {
     station = {
       id,
       name,
+      river,
+      municipality,
       dataMode: record.data_mode,
       readings: [],
     }

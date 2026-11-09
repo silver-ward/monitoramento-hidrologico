@@ -75,6 +75,15 @@ export default function StationControls({
             <Descriptions.Item label={<><FieldTimeOutlined /> Fuso horário</>}>
               {timePresentation.getLabel()}
             </Descriptions.Item>
+            <Descriptions.Item label={<><EnvironmentOutlined /> Estação</>}>
+              {station.name ?? 'N/A'}
+            </Descriptions.Item>
+            <Descriptions.Item label={<><EnvironmentOutlined /> Rio</>}>
+              {station.river ?? 'N/A'}
+            </Descriptions.Item>
+            <Descriptions.Item label={<><EnvironmentOutlined /> Município</>}>
+              {station.municipality ?? 'N/A'}
+            </Descriptions.Item>
           </Descriptions>
         </div>
       </div>
