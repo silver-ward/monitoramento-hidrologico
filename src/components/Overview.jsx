@@ -35,7 +35,14 @@ function EmptyReadings({ description = 'Nenhum registro telemétrico disponível
   )
 }
 
-export default function Overview({ station, readings, lastReading, timeRange, onShowCharts }) {
+export default function Overview({
+  station,
+  readings,
+  lastReading,
+  timePresentation,
+  timeRange,
+  onShowCharts,
+}) {
   return (
     <div className="page-stack">
       <Row gutter={[16, 16]} className="stats-grid">
@@ -48,7 +55,9 @@ export default function Overview({ station, readings, lastReading, timeRange, on
               suffix="m"
             />
             <Typography.Text type="secondary">
-              {lastReading ? `Medição: ${lastReading.labelCompleto} (BRT)` : 'Sem leituras'}
+              {lastReading
+                ? `Medição: ${lastReading.labelCompleto} (${timePresentation.getLabel()})`
+                : 'Sem leituras'}
             </Typography.Text>
           </Card>
         </Col>

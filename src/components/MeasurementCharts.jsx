@@ -12,32 +12,7 @@ import {
   YAxis,
 } from 'recharts'
 
-const chartTimeZone = 'America/Sao_Paulo'
-const axisDateFormatter = new Intl.DateTimeFormat('pt-BR', {
-  day: '2-digit',
-  month: '2-digit',
-  hour: '2-digit',
-  minute: '2-digit',
-  timeZone: chartTimeZone,
-})
-const tooltipDateFormatter = new Intl.DateTimeFormat('pt-BR', {
-  day: '2-digit',
-  month: '2-digit',
-  year: 'numeric',
-  hour: '2-digit',
-  minute: '2-digit',
-  timeZone: chartTimeZone,
-})
-
-function formatAxisDate(timestamp) {
-  return axisDateFormatter.format(timestamp)
-}
-
-function formatTooltipDate(timestamp) {
-  return tooltipDateFormatter.format(timestamp)
-}
-
-export default function MeasurementCharts({ station, readings, timeRange }) {
+export default function MeasurementCharts({ station, readings, timePresentation, timeRange }) {
   if (readings.length === 0) {
     return (
       <Card className="empty-card">
@@ -82,7 +57,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
               scale="time"
               domain={['dataMin', 'dataMax']}
               tickCount={8}
-              tickFormatter={formatAxisDate}
+              tickFormatter={timePresentation.formatChartAxis}
               minTickGap={24}
               angle={-30}
               textAnchor="end"
@@ -99,7 +74,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
               domain={['auto', 'auto']}
             />
             <Tooltip
-              labelFormatter={formatTooltipDate}
+              labelFormatter={timePresentation.formatChartTooltip}
               formatter={(value) => [`${Number(value).toFixed(2)} m`, 'Nível']}
               contentStyle={{ borderColor: '#e8e1f0', borderRadius: 8 }}
             />
@@ -129,7 +104,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
               scale="time"
               domain={['dataMin', 'dataMax']}
               tickCount={8}
-              tickFormatter={formatAxisDate}
+              tickFormatter={timePresentation.formatChartAxis}
               minTickGap={24}
               angle={-30}
               textAnchor="end"
@@ -146,7 +121,7 @@ export default function MeasurementCharts({ station, readings, timeRange }) {
               domain={[0, 'auto']}
             />
             <Tooltip
-              labelFormatter={formatTooltipDate}
+              labelFormatter={timePresentation.formatChartTooltip}
               formatter={(value) => [`${Number(value).toFixed(1)} mm/h`, 'Precipitação']}
               contentStyle={{ borderColor: '#e8e1f0', borderRadius: 8 }}
             />

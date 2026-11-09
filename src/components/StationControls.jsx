@@ -12,6 +12,7 @@ export default function StationControls({
   selectedStationId,
   onStationChange,
   showTimeRange,
+  timePresentation,
   timeRange,
   onTimeRangeChange,
   onRefresh,
@@ -71,8 +72,8 @@ export default function StationControls({
             <Descriptions.Item label={<><ThunderboltOutlined /> Origem dos dados</>}>
               {station.dataMode === 'simulation' ? 'Simulação' : station.dataMode}
             </Descriptions.Item>
-            <Descriptions.Item label={<><FieldTimeOutlined /> Fuso</>}>
-              América/São Paulo (BRT, UTC-3)
+            <Descriptions.Item label={<><FieldTimeOutlined /> Fuso horário</>}>
+              {timePresentation.getLabel()}
             </Descriptions.Item>
           </Descriptions>
         </div>

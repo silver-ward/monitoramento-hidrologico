@@ -6,6 +6,7 @@ import MeasurementsTable from './components/MeasurementsTable.jsx'
 import Overview from './components/Overview.jsx'
 import StationControls from './components/StationControls.jsx'
 import { stations } from './data/readings.js'
+import { timePresentation } from './utils/timePresentation.js'
 import './App.css'
 
 const pageItems = [
@@ -22,28 +23,20 @@ function AppContent() {
   const [refreshing, setRefreshing] = useState(false)
 
   const currentStation = stations.find((station) => station.id === selectedStationId) ?? stations[0]
-  const filteredData = useMemo(() => {
+  const displayedReadings = useMemo(() => {
     if (currentStation.readings.length === 0) return []
 
     const hours = Number.parseInt(timeRange, 10)
-    return currentStation.readings.slice(-hours).map((reading) => {
-      const date = new Date(reading.timestamp)
-      const time = date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
-      const day = date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })
-
-      return {
-        ...reading,
-        labelHora: time,
-        labelData: day,
-        labelCompleto: `${day} ${time}`,
-      }
-    })
+    return currentStation.readings.slice(-hours).map((reading) => ({
+      ...reading,
+      ...timePresentation.formatReading(reading.timestamp),
+    }))
   }, [currentStation, timeRange])
 
-  const lastReading = filteredData.at(-1) ?? null
+  const lastReading = displayedReadings.at(-1) ?? null
   const tableData = useMemo(
-    () => filteredData.toSorted((a, b) => Date.parse(b.timestamp) - Date.parse(a.timestamp)),
-    [filteredData],
+    () => displayedReadings.toSorted((a, b) => Date.parse(b.timestamp) - Date.parse(a.timestamp)),
+    [displayedReadings],
   )
 
   const navigateTo = (page) => {
@@ -78,6 +71,7 @@ function AppContent() {
         selectedStationId={selectedStationId}
         onStationChange={setSelectedStationId}
         showTimeRange={currentPage === 'charts' || currentPage === 'table'}
+        timePresentation={timePresentation}
         timeRange={timeRange}
         onTimeRangeChange={setTimeRange}
         onRefresh={handleRefresh}
@@ -88,14 +82,20 @@ function AppContent() {
         {currentPage === 'overview' && (
           <Overview
             station={currentStation}
-            readings={filteredData}
+            readings={displayedReadings}
             lastReading={lastReading}
+            timePresentation={timePresentation}
             timeRange={timeRange}
             onShowCharts={() => navigateTo('charts')}
           />
         )}
         {currentPage === 'charts' && (
-          <MeasurementCharts station={currentStation} readings={filteredData} timeRange={timeRange} />
+          <MeasurementCharts
+            station={currentStation}
+            readings={displayedReadings}
+            timePresentation={timePresentation}
+            timeRange={timeRange}
+          />
         )}
         {currentPage === 'table' && (
           <MeasurementsTable
