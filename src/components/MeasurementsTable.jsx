@@ -1,20 +1,19 @@
 import { useState } from 'react'
-import { ArrowDownOutlined, ArrowUpOutlined, SwapOutlined, TableOutlined } from '@ant-design/icons'
-import { Button, Card, Segmented, Table, Tag, Typography } from 'antd'
+import { TableOutlined } from '@ant-design/icons'
+import { Card, Table, Typography } from 'antd'
 
-export default function MeasurementsTable({
-  readings,
-  filterRain,
-  onFilterChange,
-  sortOrder,
-  onSortChange,
-}) {
+export default function MeasurementsTable({ readings }) {
   const [page, setPage] = useState(1)
+  const [sortState, setSortState] = useState({ columnKey: 'date', order: 'descend' })
+  const sortDirections = ['ascend', 'descend', 'ascend']
   const columns = [
     {
-      title: 'Data / Horário (BRT)',
+      title: 'Data / Hora',
       key: 'date',
-      width: '35%',
+      width: '33%',
+      sorter: (left, right) => Date.parse(left.timestamp) - Date.parse(right.timestamp),
+      sortDirections,
+      sortOrder: sortState.columnKey === 'date' ? sortState.order : null,
       render: (_, reading) => (
         <div>
           <Typography.Text strong>{reading.labelHora}</Typography.Text>
@@ -24,30 +23,29 @@ export default function MeasurementsTable({
       ),
     },
     {
-      title: 'Nível (m)',
+      title: 'Nível',
       dataIndex: 'level',
       key: 'level',
-      width: '25%',
+      width: '33%',
+      sorter: (left, right) => left.level - right.level,
+      sortDirections,
+      sortOrder: sortState.columnKey === 'level' ? sortState.order : null,
       render: (level) => <Typography.Text className="level-value">{level.toFixed(2)} m</Typography.Text>,
     },
     {
-      title: 'Precipitação (mm/h)',
+      title: 'Chuva',
       dataIndex: 'rainfall',
       key: 'rainfall',
-      width: '25%',
+      width: '33%',
+      sorter: (left, right) => left.rainfall - right.rainfall,
+      sortDirections,
+      sortOrder: sortState.columnKey === 'rainfall' ? sortState.order : null,
       render: (rainfall) => (
         <Typography.Text className={rainfall > 0 ? 'rainfall-value' : ''} type={rainfall > 0 ? undefined : 'secondary'}>
           {rainfall.toFixed(1)} mm/h
         </Typography.Text>
-      ),
-    },
-    {
-      title: 'Estado',
-      dataIndex: 'rainfall',
-      key: 'status',
-      width: '15%',
-      render: (rainfall) => <Tag color={rainfall > 0 ? '#fa4165' : 'default'}>{rainfall > 0 ? 'Chuva' : 'Seco'}</Tag>,
-    },
+      )
+    }
   ]
 
   return (
@@ -59,43 +57,30 @@ export default function MeasurementsTable({
           <div><Typography.Text type="secondary">{readings.length} resultados</Typography.Text></div>
         </div>
       }
-      extra={
-        <div className="table-actions">
-          <Segmented
-            value={filterRain}
-            onChange={(value) => {
-              onFilterChange(value)
-              setPage(1)
-            }}
-            options={[
-              { label: 'Todos', value: 'all' },
-              { label: 'Com Chuva', value: 'rain' },
-              { label: 'Sem Chuva', value: 'dry' },
-            ]}
-          />
-          <Button
-            icon={sortOrder === 'desc' ? <ArrowDownOutlined /> : <ArrowUpOutlined />}
-            onClick={onSortChange}
-          >
-            {sortOrder === 'desc' ? 'Mais Recentes' : 'Mais Antigos'}
-            <SwapOutlined />
-          </Button>
-        </div>
-      }
     >
       <Table
         rowKey="timestamp"
         columns={columns}
         dataSource={readings}
+        onChange={(pagination, _, sorter, extra) => {
+          if (extra.action === 'paginate') {
+            setPage(pagination.current)
+          } else if (extra.action === 'sort') {
+            const activeSorter = Array.isArray(sorter) ? sorter[0] : sorter
+            if (activeSorter?.columnKey && activeSorter.order) {
+              setSortState({ columnKey: activeSorter.columnKey, order: activeSorter.order })
+            }
+            setPage(1)
+          }
+        }}
         locale={{ emptyText: 'Nenhuma medição encontrada para os filtros selecionados.' }}
-        scroll={{ x: 'max-content' }}
+        tableLayout="fixed"
         pagination={{
           current: page,
           pageSize: 10,
           total: readings.length,
           showSizeChanger: false,
           showTotal: (total, range) => `${range[0]}-${range[1]} de ${total}`,
-          onChange: setPage,
         }}
       />
     </Card>

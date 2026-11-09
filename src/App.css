@@ -419,12 +419,12 @@
 }
 
 .level-value {
-  color: var(--brand-purple);
+  color: var(--brand-deep-purple);
   font-weight: 700;
 }
 
 .rainfall-value {
-  color: var(--brand-coral);
+  color: var(--brand-deep-purple);
   font-weight: 600;
 }
 

@@ -19,8 +19,6 @@ function AppContent() {
   const [currentPage, setCurrentPage] = useState('overview')
   const [selectedStationId, setSelectedStationId] = useState(stations[0].id)
   const [timeRange, setTimeRange] = useState('24h')
-  const [filterRain, setFilterRain] = useState('all')
-  const [sortOrder, setSortOrder] = useState('desc')
   const [refreshing, setRefreshing] = useState(false)
 
   const currentStation = stations.find((station) => station.id === selectedStationId) ?? stations[0]
@@ -43,18 +41,10 @@ function AppContent() {
   }, [currentStation, timeRange])
 
   const lastReading = filteredData.at(-1) ?? null
-  const tableData = useMemo(() => {
-    const data = filteredData.filter((reading) => {
-      if (filterRain === 'rain') return reading.rainfall > 0
-      if (filterRain === 'dry') return reading.rainfall === 0
-      return true
-    })
-
-    return data.toSorted((a, b) => {
-      const difference = new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
-      return sortOrder === 'desc' ? -difference : difference
-    })
-  }, [filteredData, filterRain, sortOrder])
+  const tableData = useMemo(
+    () => filteredData.toSorted((a, b) => Date.parse(b.timestamp) - Date.parse(a.timestamp)),
+    [filteredData],
+  )
 
   const navigateTo = (page) => {
     setCurrentPage(page)
@@ -111,10 +101,6 @@ function AppContent() {
           <MeasurementsTable
             key={`${currentStation.id}-${timeRange}`}
             readings={tableData}
-            filterRain={filterRain}
-            onFilterChange={setFilterRain}
-            sortOrder={sortOrder}
-            onSortChange={() => setSortOrder((order) => (order === 'desc' ? 'asc' : 'desc'))}
           />
         )}
       </Layout.Content>
