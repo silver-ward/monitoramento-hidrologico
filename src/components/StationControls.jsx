@@ -1,8 +1,9 @@
 import {
+  ClockCircleOutlined,
+  DatabaseOutlined,
   EnvironmentOutlined,
-  FieldTimeOutlined,
+  NumberOutlined,
   ReloadOutlined,
-  ThunderboltOutlined,
 } from '@ant-design/icons'
 import { Button, Descriptions, Select, Segmented, Typography } from 'antd'
 
@@ -66,14 +67,8 @@ export default function StationControls({
       <div className="station-details">
         <div className="control-inner container">
           <Descriptions className="station-metadata" size="small" column={{ xs: 1, md: 2, xl: 3 }}>
-            <Descriptions.Item label={<><EnvironmentOutlined /> Código da estação</>}>
+            <Descriptions.Item label={<><NumberOutlined /> Código da estação</>}>
               {station.id}
-            </Descriptions.Item>
-            <Descriptions.Item label={<><ThunderboltOutlined /> Origem dos dados</>}>
-              {station.dataMode === 'simulation' ? 'Simulação' : station.dataMode}
-            </Descriptions.Item>
-            <Descriptions.Item label={<><FieldTimeOutlined /> Fuso horário</>}>
-              {timePresentation.getLabel()}
             </Descriptions.Item>
             <Descriptions.Item label={<><EnvironmentOutlined /> Estação</>}>
               {station.name ?? 'N/A'}
@@ -83,6 +78,12 @@ export default function StationControls({
             </Descriptions.Item>
             <Descriptions.Item label={<><EnvironmentOutlined /> Município</>}>
               {station.municipality ?? 'N/A'}
+            </Descriptions.Item>
+            <Descriptions.Item label={<><DatabaseOutlined /> Origem dos dados</>}>
+              {station.dataMode === 'simulation' ? 'Simulação' : station.dataMode}
+            </Descriptions.Item>
+            <Descriptions.Item label={<><ClockCircleOutlined /> Fuso horário</>}>
+              {timePresentation.getLabel()}
             </Descriptions.Item>
           </Descriptions>
         </div>
