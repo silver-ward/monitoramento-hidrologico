@@ -35,7 +35,22 @@ function AppContent() {
 
   const lastReading = displayedReadings.at(-1) ?? null
   const tableData = useMemo(
-    () => displayedReadings.toSorted((a, b) => Date.parse(b.timestamp) - Date.parse(a.timestamp)),
+    () => displayedReadings
+      .map((reading, index) => ({
+        ...reading,
+        tableKey: `${reading.timestamp ?? 'missing'}-${index}`,
+      }))
+      .toSorted((a, b) => {
+        const aTimestamp = a.timestamp == null ? Number.NaN : Date.parse(String(a.timestamp))
+        const bTimestamp = b.timestamp == null ? Number.NaN : Date.parse(String(b.timestamp))
+        const aIsValid = Number.isFinite(aTimestamp)
+        const bIsValid = Number.isFinite(bTimestamp)
+
+        if (!aIsValid && !bIsValid) return 0
+        if (!aIsValid) return 1
+        if (!bIsValid) return -1
+        return bTimestamp - aTimestamp
+      }),
     [displayedReadings],
   )
 
