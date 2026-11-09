@@ -217,7 +217,7 @@
 
 .control-field {
   display: flex;
-  width: 100%;
+  width: fit-content;
   flex-direction: column;
   gap: 0.25rem;
 }
@@ -249,14 +249,13 @@
 
 .time-controls {
   display: flex;
-  width: 100%;
+  width: fit-content;
   align-items: center;
   gap: 2%;
 }
 
 .time-controls .ant-segmented {
-  flex: 1;
-  min-width: 0;
+  flex: none;
 }
 
 .time-controls .ant-segmented-item-selected,

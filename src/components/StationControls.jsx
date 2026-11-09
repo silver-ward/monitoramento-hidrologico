@@ -44,7 +44,7 @@ export default function StationControls({
               </div>
             </div>
             {showTimeRange && (
-              <div className="control-field">
+              <div className="control-field timeframe-field">
               <Typography.Text className="field-label">Janela de Tempo</Typography.Text>
               <div className="time-controls">
                 <Segmented
