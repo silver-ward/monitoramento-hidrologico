@@ -2,7 +2,7 @@ import {
   AlertOutlined,
   CloudOutlined,
   LineChartOutlined,
-  WifiOutlined,
+  CalendarOutlined,
 } from '@ant-design/icons'
 import { Area } from '@ant-design/plots'
 import { Button, Card, Empty, Row, Col, Statistic, Tag, Typography } from 'antd'
@@ -49,28 +49,30 @@ export default function Overview({
         <Col xs={24} md={12}>
           <Card className="stat-card stat-level">
             <Statistic
-              title={<><LineChartOutlined /> Último Nível Registrado</>}
+              title={<><LineChartOutlined /> Último Nível</>}
               value={lastReading ? lastReading.level : '--'}
               precision={lastReading ? 2 : undefined}
               suffix="m"
             />
             <Typography.Text type="secondary">
-              {lastReading
-                ? `Medição: ${lastReading.labelCompleto} (${timePresentation.getLabel()})`
-                : 'Sem leituras'}
+              {lastReading ? (
+                <><CalendarOutlined /> {lastReading.labelCompleto}</>
+              ) : 'Sem leituras'}
             </Typography.Text>
           </Card>
         </Col>
         <Col xs={24} md={12}>
           <Card className="stat-card stat-rain">
             <Statistic
-              title={<><CloudOutlined /> Precipitação Recente</>}
+              title={<><CloudOutlined /> Última Precipitação</>}
               value={lastReading ? lastReading.rainfall : '--'}
               precision={lastReading ? 1 : undefined}
               suffix="mm/h"
             />
             <Typography.Text type="secondary">
-              {lastReading ? (lastReading.rainfall > 0 ? 'Chuva detectada na bacia' : 'Tempo seco no período') : 'Sem dados'}
+              {lastReading ? (
+                <><CalendarOutlined /> {lastReading.labelCompleto}</>
+              ) : 'Sem leituras'}
             </Typography.Text>
           </Card>
         </Col>

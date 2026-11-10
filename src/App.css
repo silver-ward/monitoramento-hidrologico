@@ -317,7 +317,7 @@
 }
 
 .stat-rain {
-  border-left: 0.25rem solid var(--brand-coral);
+  border-left: 0.25rem solid var(--brand-purple);
 }
 
 .stat-status {
@@ -346,7 +346,7 @@
 }
 
 .stat-level .ant-statistic-title .anticon {
-  color: var(--brand-purple);
+  color: var(--brand-coral);
 }
 
 .stat-rain .ant-statistic-title .anticon {
@@ -366,6 +366,10 @@
 .stat-card .ant-statistic-content-suffix,
 .stat-card > .ant-card-body > .ant-typography {
   font-size: 0.75rem;
+}
+
+.stat-card > .ant-card-body > .ant-typography-secondary {
+  color: var(--brand-muted);
 }
 
 .status-line {
