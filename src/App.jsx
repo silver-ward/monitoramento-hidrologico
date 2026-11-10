@@ -5,6 +5,7 @@ import LoadingOverlay from './components/LoadingOverlay.jsx'
 import MeasurementCharts from './components/MeasurementCharts.jsx'
 import MeasurementsTable from './components/MeasurementsTable.jsx'
 import Overview from './components/Overview.jsx'
+import StationDetails from './components/StationDetails.jsx'
 import StationControls from './components/StationControls.jsx'
 import { stations } from './data/readings.js'
 import { timePresentation } from './utils/timePresentation.js'
@@ -112,20 +113,17 @@ function AppContent() {
       />
       <StationControls
         stations={stations}
-        station={currentStation}
         selectedStationId={selectedStationId}
         onStationChange={handleStationChange}
         showTimeRange={currentPage === 'charts' || currentPage === 'table'}
-        timePresentation={timePresentation}
         timeRange={timeRange}
         onTimeRangeChange={handleTimeRangeChange}
         onRefresh={handleRefresh}
         refreshing={refreshing}
       />
-
-      <Layout.Content className="content-area container">
-        {loading && <LoadingOverlay loading />}
-        <div aria-busy={loading} className={`content-reveal${loading ? ' content-reveal-loading' : ''}`}>
+      <div aria-busy={loading} className={`data-view-area${loading ? ' data-view-area-loading' : ''}`}>
+        <StationDetails station={currentStation} timePresentation={timePresentation} />
+        <Layout.Content className="content-area container">
           {currentPage === 'overview' && (
             <Overview
               station={currentStation}
@@ -150,8 +148,9 @@ function AppContent() {
               readings={tableData}
             />
           )}
-        </div>
-      </Layout.Content>
+        </Layout.Content>
+        {loading && <LoadingOverlay loading />}
+      </div>
 
       <Layout.Footer className="app-footer">
         <strong>Cogmo Technology</strong> · Projeto Técnico

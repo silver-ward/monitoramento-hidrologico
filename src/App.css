@@ -15,12 +15,20 @@
   pointer-events: auto;
 }
 
-.content-reveal {
-  opacity: 1;
+.data-view-area {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.data-view-area .station-details,
+.data-view-area .content-area {
   transition: opacity 300ms ease;
 }
 
-.content-reveal-loading {
+.data-view-area-loading .station-details,
+.data-view-area-loading .content-area {
   opacity: 0;
 }
 

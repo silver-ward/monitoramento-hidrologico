@@ -1,32 +1,23 @@
-import {
-  ClockCircleOutlined,
-  DatabaseOutlined,
-  EnvironmentOutlined,
-  NumberOutlined,
-  ReloadOutlined,
-} from '@ant-design/icons'
-import { Button, Descriptions, Select, Segmented, Typography } from 'antd'
+import { ReloadOutlined } from '@ant-design/icons'
+import { Button, Select, Segmented, Typography } from 'antd'
 
 export default function StationControls({
   stations,
-  station,
   selectedStationId,
   onStationChange,
   showTimeRange,
-  timePresentation,
   timeRange,
   onTimeRangeChange,
   onRefresh,
   refreshing,
 }) {
   return (
-    <>
-      <section className="control-strip">
-        <div className="control-inner container">
-          <div className="selectors-row">
-            <div className="control-field station-field">
-              <Typography.Text className="field-label">Estação Hidrológica</Typography.Text>
-              <div className="station-select-row">
+    <section className="control-strip">
+      <div className="control-inner container">
+        <div className="selectors-row">
+          <div className="control-field station-field">
+            <Typography.Text className="field-label">Estação Hidrológica</Typography.Text>
+            <div className="station-select-row">
               <Select
                 aria-label="Estação Hidrológica"
                 value={selectedStationId}
@@ -43,10 +34,10 @@ export default function StationControls({
                 loading={refreshing}
                 onClick={onRefresh}
               />
-              </div>
             </div>
-            {showTimeRange && (
-              <div className="control-field timeframe-field">
+          </div>
+          {showTimeRange && (
+            <div className="control-field timeframe-field">
               <Typography.Text className="field-label">Janela de Tempo</Typography.Text>
               <div className="time-controls">
                 <Segmented
@@ -59,35 +50,10 @@ export default function StationControls({
                   ]}
                 />
               </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-      <div className="station-details">
-        <div className="control-inner container">
-          <Descriptions className="station-metadata" size="small" column={{ xs: 1, md: 2, xl: 3 }}>
-            <Descriptions.Item label={<><NumberOutlined /> Código da estação</>}>
-              {station.id}
-            </Descriptions.Item>
-            <Descriptions.Item label={<><EnvironmentOutlined /> Estação</>}>
-              {station.name ?? 'N/A'}
-            </Descriptions.Item>
-            <Descriptions.Item label={<><EnvironmentOutlined /> Rio</>}>
-              {station.river ?? 'N/A'}
-            </Descriptions.Item>
-            <Descriptions.Item label={<><EnvironmentOutlined /> Município</>}>
-              {station.municipality ?? 'N/A'}
-            </Descriptions.Item>
-            <Descriptions.Item label={<><DatabaseOutlined /> Origem dos dados</>}>
-              {station.dataMode === 'simulation' ? 'Simulação' : station.dataMode}
-            </Descriptions.Item>
-            <Descriptions.Item label={<><ClockCircleOutlined /> Fuso horário</>}>
-              {timePresentation.getLabel()}
-            </Descriptions.Item>
-          </Descriptions>
+            </div>
+          )}
         </div>
       </div>
-    </>
+    </section>
   )
 }
