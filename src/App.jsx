@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { App as AntdApp, Layout } from 'antd'
 import AppHeader from './components/AppHeader.jsx'
+import LoadingOverlay from './components/LoadingOverlay.jsx'
 import MeasurementCharts from './components/MeasurementCharts.jsx'
 import MeasurementsTable from './components/MeasurementsTable.jsx'
 import Overview from './components/Overview.jsx'
@@ -20,48 +21,77 @@ function AppContent() {
   const [currentPage, setCurrentPage] = useState('overview')
   const [selectedStationId, setSelectedStationId] = useState(stations[0].id)
   const [timeRange, setTimeRange] = useState('24h')
+  const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
+  const loadingTimeout = useRef(null)
+
+  useEffect(() => {
+    const frameId = window.requestAnimationFrame(() => setLoading(false))
+    return () => {
+      window.cancelAnimationFrame(frameId)
+      if (loadingTimeout.current !== null) {
+        window.clearTimeout(loadingTimeout.current)
+      }
+    }
+  }, [])
 
   const currentStation = stations.find((station) => station.id === selectedStationId) ?? stations[0]
-  const displayedReadings = useMemo(() => {
-    if (currentStation.readings.length === 0) return []
-
-    const hours = Number.parseInt(timeRange, 10)
-    return currentStation.readings.slice(-hours).map((reading) => ({
-      ...reading,
-      ...timePresentation.formatReading(reading.timestamp),
-    }))
-  }, [currentStation, timeRange])
+  const hours = Number.parseInt(timeRange, 10)
+  const displayedReadings = currentStation.readings.slice(-hours).map((reading) => ({
+    ...reading,
+    ...timePresentation.formatReading(reading.timestamp),
+  }))
 
   const lastReading = displayedReadings.at(-1) ?? null
-  const tableData = useMemo(
-    () => displayedReadings
-      .map((reading, index) => ({
-        ...reading,
-        tableKey: `${reading.timestamp ?? 'missing'}-${index}`,
-      }))
-      .toSorted((a, b) => {
-        const aTimestamp = a.timestamp == null ? Number.NaN : Date.parse(String(a.timestamp))
-        const bTimestamp = b.timestamp == null ? Number.NaN : Date.parse(String(b.timestamp))
-        const aIsValid = Number.isFinite(aTimestamp)
-        const bIsValid = Number.isFinite(bTimestamp)
+  const tableData = displayedReadings
+    .map((reading, index) => ({
+      ...reading,
+      tableKey: `${reading.timestamp ?? 'missing'}-${index}`,
+    }))
+    .toSorted((a, b) => {
+      const aTimestamp = a.timestamp == null ? Number.NaN : Date.parse(String(a.timestamp))
+      const bTimestamp = b.timestamp == null ? Number.NaN : Date.parse(String(b.timestamp))
+      const aIsValid = Number.isFinite(aTimestamp)
+      const bIsValid = Number.isFinite(bTimestamp)
 
-        if (!aIsValid && !bIsValid) return 0
-        if (!aIsValid) return 1
-        if (!bIsValid) return -1
-        return bTimestamp - aTimestamp
-      }),
-    [displayedReadings],
-  )
+      if (!aIsValid && !bIsValid) return 0
+      if (!aIsValid) return 1
+      if (!bIsValid) return -1
+      return bTimestamp - aTimestamp
+    })
 
   const navigateTo = (page) => {
     setCurrentPage(page)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const beginLoading = (isRefresh = false) => {
+    if (loadingTimeout.current !== null) {
+      window.clearTimeout(loadingTimeout.current)
+    }
+
+    setLoading(true)
+    setRefreshing(isRefresh)
+
+    loadingTimeout.current = window.setTimeout(() => {
+      setLoading(false)
+      setRefreshing(false)
+      loadingTimeout.current = null
+    }, 300)
+  }
+
+  const handleStationChange = (stationId) => {
+    setSelectedStationId(stationId)
+    beginLoading()
+  }
+
+  const handleTimeRangeChange = (range) => {
+    setTimeRange(range)
+    beginLoading()
+  }
+
   const handleRefresh = () => {
-    setRefreshing(true)
-    window.setTimeout(() => setRefreshing(false), 500)
+    beginLoading(true)
   }
 
   const handleContact = () => {
@@ -84,40 +114,43 @@ function AppContent() {
         stations={stations}
         station={currentStation}
         selectedStationId={selectedStationId}
-        onStationChange={setSelectedStationId}
+        onStationChange={handleStationChange}
         showTimeRange={currentPage === 'charts' || currentPage === 'table'}
         timePresentation={timePresentation}
         timeRange={timeRange}
-        onTimeRangeChange={setTimeRange}
+        onTimeRangeChange={handleTimeRangeChange}
         onRefresh={handleRefresh}
         refreshing={refreshing}
       />
 
       <Layout.Content className="content-area container">
-        {currentPage === 'overview' && (
-          <Overview
-            station={currentStation}
-            readings={displayedReadings}
-            lastReading={lastReading}
-            timePresentation={timePresentation}
-            timeRange={timeRange}
-            onShowCharts={() => navigateTo('charts')}
-          />
-        )}
-        {currentPage === 'charts' && (
-          <MeasurementCharts
-            station={currentStation}
-            readings={displayedReadings}
-            timePresentation={timePresentation}
-            timeRange={timeRange}
-          />
-        )}
-        {currentPage === 'table' && (
-          <MeasurementsTable
-            key={`${currentStation.id}-${timeRange}`}
-            readings={tableData}
-          />
-        )}
+        {loading && <LoadingOverlay loading />}
+        <div aria-busy={loading} className={`content-reveal${loading ? ' content-reveal-loading' : ''}`}>
+          {currentPage === 'overview' && (
+            <Overview
+              station={currentStation}
+              readings={displayedReadings}
+              lastReading={lastReading}
+              timePresentation={timePresentation}
+              timeRange={timeRange}
+              onShowCharts={() => navigateTo('charts')}
+            />
+          )}
+          {currentPage === 'charts' && (
+            <MeasurementCharts
+              station={currentStation}
+              readings={displayedReadings}
+              timePresentation={timePresentation}
+              timeRange={timeRange}
+            />
+          )}
+          {currentPage === 'table' && (
+            <MeasurementsTable
+              key={`${currentStation.id}-${timeRange}`}
+              readings={tableData}
+            />
+          )}
+        </div>
       </Layout.Content>
 
       <Layout.Footer className="app-footer">

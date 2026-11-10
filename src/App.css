@@ -2,6 +2,41 @@
   min-height: 100vh;
 }
 
+.loading-overlay {
+  position: absolute;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  inset: 0;
+  pointer-events: none;
+}
+
+.loading-overlay-active {
+  pointer-events: auto;
+}
+
+.content-reveal {
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+.content-reveal-loading {
+  opacity: 0;
+}
+
+.loading-spinner-position {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.loading-overlay-icon {
+  color: var(--brand-coral);
+  font-size: 2.5rem;
+}
+
 .ant-notification-topLeft {
   right: auto !important;
   left: 4% !important;
@@ -280,6 +315,7 @@
 }
 
 .content-area {
+  position: relative;
   flex: 1;
   padding: 4% 5%;
 }
