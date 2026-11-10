@@ -5,7 +5,7 @@ import {
   CalendarOutlined,
 } from '@ant-design/icons'
 import { Area } from '@ant-design/plots'
-import { Button, Card, Empty, Row, Col, Statistic, Tag, Typography } from 'antd'
+import { Card, Empty, Row, Col, Statistic, Typography } from 'antd'
 
 function LevelChart({ readings, compact = false }) {
   const config = {
