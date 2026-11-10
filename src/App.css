@@ -421,6 +421,10 @@
   padding-top: 0;
 }
 
+.measurement-column-icon {
+  display: none;
+}
+
 .level-value {
   color: var(--brand-deep-purple);
   font-weight: 700;
@@ -452,6 +456,24 @@
 .ant-notification-fade-appear-active {
   transition: all 1s ease-in-out !important;
   animation-duration: 2s !important;
+}
+
+@media (max-width: 369px) {
+  .measurement-column-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .measurement-column-icon {
+    display: inline-block;
+  }
 }
 
 @media (min-width: 768px) {

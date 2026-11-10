@@ -1,5 +1,10 @@
 import { useState } from 'react'
-import { TableOutlined } from '@ant-design/icons'
+import {
+  CloudOutlined,
+  ClockCircleOutlined,
+  LineChartOutlined,
+  TableOutlined,
+} from '@ant-design/icons'
 import { Card, Table, Typography } from 'antd'
 
 const compareValues = (left, right) => {
@@ -24,7 +29,12 @@ export default function MeasurementsTable({ readings }) {
   const sortDirections = ['ascend', 'descend', 'ascend']
   const columns = [
     {
-      title: 'Data / Hora',
+      title: (
+        <span className="measurement-column-title">
+          <span className="measurement-column-label">Data / Hora</span>
+          <ClockCircleOutlined className="measurement-column-icon" aria-hidden="true" />
+        </span>
+      ),
       key: 'date',
       width: '33%',
       sorter: (left, right) => {
@@ -50,7 +60,12 @@ export default function MeasurementsTable({ readings }) {
       },
     },
     {
-      title: 'Nível',
+      title: (
+        <span className="measurement-column-title">
+          <span className="measurement-column-label">Nível</span>
+          <LineChartOutlined className="measurement-column-icon" aria-hidden="true" />
+        </span>
+      ),
       dataIndex: 'level',
       key: 'level',
       width: '33%',
@@ -60,7 +75,12 @@ export default function MeasurementsTable({ readings }) {
       render: (level) => <Typography.Text className="level-value">{formatMeasurement(level, 2, 'm')}</Typography.Text>,
     },
     {
-      title: 'Chuva',
+      title: (
+        <span className="measurement-column-title">
+          <span className="measurement-column-label">Chuva</span>
+          <CloudOutlined className="measurement-column-icon" aria-hidden="true" />
+        </span>
+      ),
       dataIndex: 'rainfall',
       key: 'rainfall',
       width: '33%',
