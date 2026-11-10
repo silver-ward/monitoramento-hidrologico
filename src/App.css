@@ -321,7 +321,7 @@
 }
 
 .stat-card .ant-statistic-title {
-  color: var(--brand-muted);
+  color: var(--brand-muted) !important;
   font-size: 0.75rem;
   font-weight: 700;
 }
@@ -331,11 +331,11 @@
 }
 
 .stat-level .ant-statistic-title .anticon {
-  color: var(--brand-coral);
+  color: var(--brand-deep-purple);
 }
 
 .stat-rain .ant-statistic-title .anticon {
-  color: var(--brand-coral);
+  color: var(--brand-deep-purple);
 }
 
 .stat-card .ant-statistic-content {
@@ -350,7 +350,7 @@
 }
 
 .stat-card > .ant-card-body > .ant-typography-secondary {
-  color: var(--brand-muted);
+  color: var(--brand-deep-purple);
 }
 
 .status-line {
