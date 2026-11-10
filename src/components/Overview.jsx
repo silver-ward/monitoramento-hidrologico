@@ -64,7 +64,7 @@ export default function Overview({
         <Col xs={24} md={12}>
           <Card className="stat-card stat-rain">
             <Statistic
-              title={<><CloudOutlined /> Última Precipitação</>}
+              title={<><CloudOutlined /> Última Chuva</>}
               value={lastReading ? lastReading.rainfall : '--'}
               precision={lastReading ? 1 : undefined}
               suffix="mm/h"

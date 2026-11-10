@@ -92,7 +92,7 @@ export default function MeasurementCharts({ station, readings, timePresentation,
         </ResponsiveContainer>
       </Card>
       <Card
-        title={<span className="card-title"><CloudOutlined />Histórico de Precipitação</span>}
+        title={<span className="card-title"><CloudOutlined />Histórico de Chuva</span>}
         extra={<Typography.Text type="secondary"></Typography.Text>}
       >
         <ResponsiveContainer width="100%" aspect={1.6}>
@@ -122,12 +122,12 @@ export default function MeasurementCharts({ station, readings, timePresentation,
             />
             <Tooltip
               labelFormatter={timePresentation.formatChartTooltip}
-              formatter={(value) => [`${Number(value).toFixed(1)} mm/h`, 'Precipitação']}
+              formatter={(value) => [`${Number(value).toFixed(1)} mm/h`, 'Chuva']}
               contentStyle={{ borderColor: '#e8e1f0', borderRadius: 8 }}
             />
             <Bar
               dataKey="rainfall"
-              name="Precipitação"
+              name="Chuva"
               fill="#fa4165"
               radius={[4, 4, 0, 0]}
               maxBarSize={18}
