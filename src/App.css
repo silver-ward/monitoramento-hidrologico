@@ -237,6 +237,12 @@
   box-shadow: 0 3px 12px rgb(38 25 79 / 3%);
 }
 
+@media (height < 440px) {
+  .control-strip {
+    position: static;
+  }
+}
+
 .station-details {
   padding: 0 5% 0.375rem;
   background: #fff;
