@@ -262,6 +262,11 @@
   width: 100%;
 }
 
+.ant-select,
+.ant-select input {
+  font-size: 1rem !important;
+}
+
 .station-select-row {
   display: flex;
   width: 100%;

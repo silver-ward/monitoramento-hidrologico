@@ -19,7 +19,7 @@ createRoot(document.getElementById('root')).render(
           colorBgLayout: '#f8f7fb',
           colorBorder: '#ebe8f1',
           borderRadius: 8,
-          fontFamily: 'Comfortaa, sans-serif',
+          fontFamily: 'Comfortaa, sans-serif'
         },
       }}
     >
