@@ -268,10 +268,15 @@
 }
 
 .station-select-row {
+  position: relative;
   display: flex;
   width: 100%;
   align-items: center;
   gap: 0.25rem;
+}
+
+.station-select-popup.ant-slide-up-leave-active {
+  animation-duration: 1ms !important;
 }
 
 .station-select-row .ant-select {

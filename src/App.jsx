@@ -84,6 +84,7 @@ function AppContent() {
   const handleStationChange = (stationId) => {
     setSelectedStationId(stationId)
     beginLoading()
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleTimeRangeChange = (range) => {

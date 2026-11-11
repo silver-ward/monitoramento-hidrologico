@@ -20,6 +20,8 @@ export default function StationControls({
             <div className="station-select-row">
               <Select
                 aria-label="Estação Hidrológica"
+                classNames={{ popup: { root: 'station-select-popup' } }}
+                getPopupContainer={(triggerNode) => triggerNode.parentElement ?? document.body}
                 value={selectedStationId}
                 onChange={onStationChange}
                 options={stations.map((item) => ({
