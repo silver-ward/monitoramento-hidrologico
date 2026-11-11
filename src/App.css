@@ -86,16 +86,8 @@
 
 .brand-logo {
   display: block;
-  width: 100%;
-  height: auto;
-}
-
-.header-inner .brand-logo {
   width: 4.9rem;
-}
-
-.mobile-drawer .brand-logo {
-  width: 24.58vw;
+  height: auto;
 }
 
 .contact-button {

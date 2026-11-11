@@ -29,6 +29,7 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
     icon: pageIcons[key],
   }))
   const visibleItems = menuItems.slice(0, visibleItemCount)
+  const hasHiddenItems = visibleItemCount < menuItems.length
 
   useLayoutEffect(() => {
     const updateVisibleItems = () => {
@@ -103,15 +104,17 @@ export default function AppHeader({ items, currentPage, onNavigate, onContact })
           <Button className="contact-button" type="primary" onClick={onContact}>
             Suporte
           </Button>
-          <Button
-            className="mobile-menu-button"
-            type="text"
-            aria-label={`Abrir menu: ${mobileMenuLabel}`}
-            onClick={() => setDrawerOpen(true)}
-          >
-            <span>{mobileMenuLabel}</span>
-            <MenuOutlined />
-          </Button>
+          {hasHiddenItems && (
+            <Button
+              className="mobile-menu-button"
+              type="text"
+              aria-label={`Abrir menu: ${mobileMenuLabel}`}
+              onClick={() => setDrawerOpen(true)}
+            >
+              <span>{mobileMenuLabel}</span>
+              <MenuOutlined />
+            </Button>
+          )}
         </div>
       </div>
       <Drawer
