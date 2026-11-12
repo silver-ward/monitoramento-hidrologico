@@ -2,6 +2,7 @@ import Station from '../entities/Station.js'
 import Observation from '../entities/Observation.js'
 
 async function requestJson(path) {
+
     const response = await fetch(path, {
         headers: { Accept: 'application/json' }
     });
@@ -31,16 +32,13 @@ async function requestJson(path) {
 }
 
 export default class StationDAO {
-    async getHealth() {
-        return requestJson('/api/health')
-    }
-
+    
     async listStations() {
-        const response = await requestJson('/api/stations')
+        const response = await requestJson('/api/stations');
 
         return {
             dataMode: response.data_mode,
-            stations: response.stations.map((station) => Station.fromApi(station)),
+            stations: response.stations.map((station) => Station.fromApi(station))
         }
     }
 
