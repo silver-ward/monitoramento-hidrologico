@@ -1,3 +1,14 @@
+### Endpoints API inicial:
+
+Stations:  
+https://n8n.incluc0de.com.br/webhook/cogmo/api/stations/
+
+Series:  
+https://n8n.incluc0de.com.br/webhook/2ee3441c-7147-401d-a504-73eedb917573/cogmo/api/stations/EST-01/series?metric=rain&hours=24
+
+Summary:  
+https://n8n.incluc0de.com.br/webhook/ca01b8a8-6b9c-42ab-b126-3bc5bc27bcb3/cogmo/api/stations/EST-01/summary
+
 # Contrato HTTP compartilhado
 
 Esta referência é igual para as trilhas backend e frontend. O backend é o responsável por implementá-la; o frontend pode usar o mock local enquanto a API não está pronta.
