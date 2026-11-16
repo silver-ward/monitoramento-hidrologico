@@ -1,5 +1,6 @@
 import Station from '../entities/Station.js'
 import Observation from '../entities/Observation.js'
+import { stationsUrl, summaryUrl } from './configURL.js'
 
 async function requestJson(path) {
 
@@ -34,7 +35,7 @@ async function requestJson(path) {
 export default class StationDAO {
     
     async listStations() {
-        const response = await requestJson('/api/stations');
+        const response = await requestJson(stationsUrl);
 
         return {
             dataMode: response.data_mode,
@@ -44,7 +45,7 @@ export default class StationDAO {
 
     async getSummary(id) {
         const response = await requestJson(
-            `/api/stations/${encodeURIComponent(id)}/summary`,
+            `${summaryUrl}/${encodeURIComponent(id)}/summary`,
         )
         const { latest, station } = response
         const source = response.data_mode

@@ -1,4 +1,5 @@
 import Observation from '../entities/Observation.js'
+import { seriesUrl } from './configURL.js'
 
 async function requestJson(path) {
     const response = await fetch(path, {
@@ -44,7 +45,7 @@ export default class ObservationDAO {
             hours: String(hours),
         })
         const response = await requestJson(
-            `/api/stations/${encodeURIComponent(stationId)}/series?${query}`,
+            `${seriesUrl}/${encodeURIComponent(stationId)}/series?${query}`,
         )
 
         return {
