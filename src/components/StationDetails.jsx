@@ -6,7 +6,7 @@ import {
 } from '@ant-design/icons'
 import { Descriptions } from 'antd'
 
-export default function StationDetails({ station, timePresentation }) {
+export default function StationDetails({ station, dataMode, timePresentation }) {
   return (
     <div className="station-details">
       <div className="control-inner container">
@@ -24,7 +24,7 @@ export default function StationDetails({ station, timePresentation }) {
             {station.municipality ?? 'N/A'}
           </Descriptions.Item>
           <Descriptions.Item label={<><DatabaseOutlined /> Origem dos dados</>}>
-            {station.dataMode === 'simulation' ? 'Simulação' : station.dataMode}
+            {dataMode === 'simulation' ? 'Simulação' : dataMode ?? 'N/A'}
           </Descriptions.Item>
           <Descriptions.Item label={<><ClockCircleOutlined /> Fuso horário</>}>
             {timePresentation.getLabel()}

@@ -5,39 +5,49 @@ import {
 } from '@ant-design/icons'
 import { Card, Row, Col, Statistic, Typography } from 'antd'
 
-export default function Overview({ lastReading }) {
+function ObservationStatistic({ observation, title, icon, precision, suffix, timePresentation }) {
+  const hasValue = observation?.value !== null && observation?.value !== undefined
+
+  return (
+    <Card className={`stat-card ${title === 'Último Nível' ? 'stat-level' : 'stat-rain'}`}>
+      <Statistic
+        title={<>{icon} {title}</>}
+        value={hasValue ? observation.value : '--'}
+        precision={hasValue ? precision : undefined}
+        suffix={suffix}
+      />
+      <Typography.Text type="secondary">
+        {hasValue ? (
+          <><CalendarOutlined /> {timePresentation.formatReading(observation.observedAt).labelCompleto}</>
+        ) : 'Sem leituras'}
+      </Typography.Text>
+    </Card>
+  )
+}
+
+export default function Overview({ latest, timePresentation }) {
   return (
     <div className="page-stack">
       <Row gutter={[16, 16]} className="stats-grid">
         <Col xs={24} md={12}>
-          <Card className="stat-card stat-level">
-            <Statistic
-              title={<><LineChartOutlined /> Último Nível</>}
-              value={lastReading ? lastReading.level : '--'}
-              precision={lastReading ? 2 : undefined}
-              suffix="m"
-            />
-            <Typography.Text type="secondary">
-              {lastReading ? (
-                <><CalendarOutlined /> {lastReading.labelCompleto}</>
-              ) : 'Sem leituras'}
-            </Typography.Text>
-          </Card>
+          <ObservationStatistic
+            observation={latest?.level}
+            title="Último Nível"
+            icon={<LineChartOutlined />}
+            precision={2}
+            suffix="m"
+            timePresentation={timePresentation}
+          />
         </Col>
         <Col xs={24} md={12}>
-          <Card className="stat-card stat-rain">
-            <Statistic
-              title={<><CloudOutlined /> Última Chuva</>}
-              value={lastReading ? lastReading.rainfall : '--'}
-              precision={lastReading ? 1 : undefined}
-              suffix="mm/h"
-            />
-            <Typography.Text type="secondary">
-              {lastReading ? (
-                <><CalendarOutlined /> {lastReading.labelCompleto}</>
-              ) : 'Sem leituras'}
-            </Typography.Text>
-          </Card>
+          <ObservationStatistic
+            observation={latest?.rain}
+            title="Última Chuva"
+            icon={<CloudOutlined />}
+            precision={1}
+            suffix="mm/h"
+            timePresentation={timePresentation}
+          />
         </Col>
       </Row>
     </div>

@@ -17,10 +17,18 @@ const compareValues = (left, right) => {
   return left - right
 }
 
-const formatMeasurement = (value, digits, unit) => {
-  if (value === null) return 'null'
-  if (!Number.isFinite(value)) return 'NaN'
-  return `${value.toFixed(digits)} ${unit}`
+function renderMeasurement(value, digits, unit, className) {
+  if (value === '' || value === undefined) return ''
+  if (value === null) {
+    return <Typography.Text style={{ color: 'var(--brand-border)' }}>null</Typography.Text>
+  }
+  if (!Number.isFinite(value)) return <Typography.Text>NaN</Typography.Text>
+
+  return (
+    <Typography.Text className={className}>
+      {`${value.toFixed(digits)} ${unit}`}
+    </Typography.Text>
+  )
 }
 
 export default function MeasurementsTable({ readings }) {
@@ -72,7 +80,7 @@ export default function MeasurementsTable({ readings }) {
       sorter: (left, right) => compareValues(left.level, right.level),
       sortDirections,
       sortOrder: sortState.columnKey === 'level' ? sortState.order : null,
-      render: (level) => <Typography.Text className="level-value">{formatMeasurement(level, 2, 'm')}</Typography.Text>,
+      render: (level) => renderMeasurement(level, 2, 'm', 'level-value'),
     },
     {
       title: (
@@ -87,14 +95,7 @@ export default function MeasurementsTable({ readings }) {
       sorter: (left, right) => compareValues(left.rainfall, right.rainfall),
       sortDirections,
       sortOrder: sortState.columnKey === 'rainfall' ? sortState.order : null,
-      render: (rainfall) => (
-        <Typography.Text
-          className={Number.isFinite(rainfall) && rainfall > 0 ? 'rainfall-value' : ''}
-          type={Number.isFinite(rainfall) && rainfall > 0 ? undefined : 'secondary'}
-        >
-          {formatMeasurement(rainfall, 1, 'mm/h')}
-        </Typography.Text>
-      )
+      render: (rainfall) => renderMeasurement(rainfall, 1, 'mm/h', 'rainfall-value')
     }
   ]
 
