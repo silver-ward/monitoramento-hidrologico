@@ -45,10 +45,11 @@ function EmptyMetric({ label, station, timeRange }) {
       image={<AlertOutlined className="empty-icon" />}
       description={
         <div>
-          <Typography.Title level={5}>Ausência de Leituras Históricas</Typography.Title>
+          <Typography.Title level={5}>Sem dados</Typography.Title>
           <Typography.Text>
-            {label} da estação {station?.name ? `(${station.name}) ` : ''}
-            não disponível nas últimas {timeRange}.
+            Nenhuma leitura de {label + ' '}
+            foi encontrada pela {station?.name ? `${station.name} ` : '-- '}
+            nas últimas {timeRange}.
           </Typography.Text>
         </div>
       }
