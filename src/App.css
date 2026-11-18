@@ -324,6 +324,18 @@
   font-size: 0.75rem;
 }
 
+.station-metadata .ant-descriptions-item-container {
+  flex-wrap: wrap;
+}
+
+.station-metadata .ant-descriptions-item-label {
+  flex: 0 0 auto;
+}
+
+.station-metadata .ant-descriptions-item-content {
+  flex: 1 1 auto;
+}
+
 .station-metadata .ant-descriptions-item-label .anticon {
   margin-inline-end: 0.375rem;
 }
