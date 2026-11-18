@@ -1,3 +1,8 @@
+
+// GET /api/health
+// {"status":"ok","database":"ok"}
+
+// GET /api/stations
 export const testMockStations = [
   {
     id: "EST-TratamentodeErros",
@@ -7,6 +12,7 @@ export const testMockStations = [
   }
 ]
 
+// GET /api/stations/{station_id}/summary
 export const testSummary = 
 {
   "data_mode": "simulation",
@@ -25,6 +31,7 @@ export const testSummary =
   }
 };
 
+// GET /api/stations/{station_id}/series?metric={level/rain}&hours={1-72}
 export const testLevelObservationSeries = 
 {
   "data_mode": "simulation",
@@ -56,6 +63,7 @@ export const testRainObservationSeries =
   ]
 };
 
+// station_not_found (404), invalid_metric (400), invalid_hours (400), internal_error
 export const testStationNotFound =
 {
   "error": {
