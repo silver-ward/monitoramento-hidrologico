@@ -343,7 +343,7 @@
 .content-area {
   position: relative;
   flex: 1;
-  padding: 4% 5%;
+  padding: 4% 10px;
 }
 
 .page-stack {
@@ -452,6 +452,10 @@
   width: 100%;
 }
 
+.measurements-card {
+  width: 100%;
+}
+
 .measurements-card .ant-card-head-wrapper {
   flex-direction: column;
   align-items: stretch;
@@ -527,9 +531,14 @@
   }
 }
 
-@media (height < 440px) {
+@media (height <= 440px) {
   .control-strip {
     position: static;
+  }
+
+  .measurements-card {
+    width: 90%;
+    margin-inline: auto;
   }
 }
 
