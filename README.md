@@ -4,7 +4,7 @@ Interface web de monitoramento de dados hidrológicos de nível de rios e precip
 
 Visualize medições recentes e faça análises de séries históricas por meio de tabelas e gráficos interativos.  
 
-<img alt="Demonstração mobile" src="./img/demo-mobile.gif" width="400" align="center">  
+<img alt="Demonstração mobile" src="./img/demo-mobile.gif" width="350" align="center">  
 
 <br />Acesse o aplicativo em:  
 https://hydrocogmo.vercel.app/  
@@ -28,12 +28,12 @@ https://github.com/silver-ward/monitoramento-hidrologico
 Selecione diferentes estações de monitoramento hidrológico e defina a janela de tempo dos dados recuperados.  
 
 **Cartões de resumo**  
-<img alt="Summary Demo" src="./img/demo-summary.png" width="400" align="center">  
+<img alt="Summary Demo" src="./img/demo-summary.png" width="300" align="center">  
 Fique à par das medições de nível do rio e chuva mais recentes.  
 
 **Gráficos dinâmicos**  
-<img alt="Summary Demo" src="./img/demo-level-chart.png" width="400" align="center">
-<img alt="Summary Demo" src="./img/demo-rain-chart.png" width="400" align="center">  
+<img alt="Summary Demo" src="./img/demo-level-chart.png" width="300" align="center">
+<img alt="Summary Demo" src="./img/demo-rain-chart.png" width="300" align="center">  
 Analise séries históricas de nível do rio e chuva por meio de gráficos interativos.  
 
 **Tabela de dados**  
@@ -92,21 +92,21 @@ Para visualizar o diagrama do projeto completo, renderize o conteúdo de /diagra
 Para executar este projeto localmente, siga os seguintes passos em um terminal de comandos:  
    
 * Integração com este repositório no GitHub  
-    * Pré-requisitos: [Git](https://git-scm.com/).  
+    Pré-requisitos: [Git](https://git-scm.com/).  
 
 
     1. **Clone o repositório:**
-   ```
-   git clone https://github.com/silver-ward/monitoramento-hidrologico.git
-   ```
+        ```
+        git clone https://github.com/silver-ward/monitoramento-hidrologico.git
+        ```
 
     2. **Entre no diretório que foi clonado:**
-    ```
-    cd monitoramento-hidrologico
-    ```
+        ```
+        cd monitoramento-hidrologico
+        ```
 
 * Execução do código  
-    * Pré-requisitos: [Node.js](https://nodejs.org/).  
+    Pré-requisitos: [Node.js](https://nodejs.org/).  
 
     3. **Instale as dependências:**
         ```
@@ -125,13 +125,15 @@ Para executar este projeto localmente, siga os seguintes passos em um terminal d
         ```
 
 * Testes de UI  
-    * Pré-requisitos: [Storybook.js](https://storybook.js.org/).  
-    6. **Inicie o servidor de testes Storybook:**
+    Pré-requisitos: [Storybook.js](https://storybook.js.org/).  
+    
+    6. **Inicie o servidor de testes Storybook:**  
         ```
         npm run storybook
         ```
+
     7. **Abra no navegador o endereço localhost especificado no terminal.**
-    Exemplo:  
+        Exemplo:  
         ```
         http://127.0.0.1:6006/
         ```
