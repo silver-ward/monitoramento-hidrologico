@@ -163,6 +163,8 @@ function AppContent() {
 
   const handleTimeRangeChange = (range) => {
     setTimeRange(range)
+    setStationDataLoading(true)
+    setTimeout(() => setStationDataLoading(false), 500)
   }
 
   const handleRefresh = () => {
