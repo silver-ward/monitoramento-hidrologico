@@ -1,146 +1,145 @@
-# 🌊 Projeto FrontEnd - Monitoramento Hidrológico (Cogmo Technology)
+# Monitoramento Hidrológico
 
-Aplicação FrontEnd desenvolvida em **React** para o monitoramento de estações hidrológicas, exibindo níveis de rios, precipitação recente, gráficos de séries históricas e tabelas de consulta analítica de medições, como parte dos desafios do **Bolsa Futuro Digital (BFD)**.
+Interface web de monitoramento de dados hidrológicos de nível de rios e precipitação pluvial. 
 
----
+Visualize medições recentes e faça análises de séries históricas por meio de tabelas e gráficos interativos.  
 
-## 🚀 Deploy da Aplicação
+<img alt="Demonstração mobile" src="./img/demo-mobile.gif" width="400" align="center">  
 
-* **FrontEnd (Produção):** [Acesse o projeto na Vercel](https://hydrocogmo.vercel.app/) 
+<br />Acesse o aplicativo em:  
+https://hydrocogmo.vercel.app/  
 
----
+## Links  
 
-## 📂 Repositórios do Projeto
+#### API REST com dados simulados utilizada:  
+| Nome | Método | Endpoint  
+| :---: | :---: | :--- | 
+| Health | GET | https://n8n.incluc0de.com.br/webhook/cogmo/api/health |
+| Stations | GET | https://n8n.incluc0de.com.br/webhook/cogmo/api/stations |
+| Summary | GET | https://n8n.incluc0de.com.br/webhook/ca01b8a8-6b9c-42ab-b126-3bc5bc27bcb3/cogmo/api/stations/EST-01/summary |
+| Series | GET | https://n8n.incluc0de.com.br/webhook/2ee3441c-7147-401d-a504-73eedb917573/cogmo/api/stations/EST-01/series?metric=rain&hours=24 |
 
-* **FrontEnd (React):** [Repositório GitHub do Monitoramento Hidrológico](https://github.com/silver-ward/monitoramento-hidrologico)
+#### Repositório front end no GitHub:  
+https://github.com/silver-ward/monitoramento-hidrologico  
 
----
+## Funcionalidades
+**Listagem e seleção de estações**  
+<img alt="Stations Demo" src="./img/demo-stations.png" width="400" align="center">  
+Selecione diferentes estações de monitoramento hidrológico e defina a janela de tempo dos dados recuperados.  
 
-## 🎯 Visão Geral do Projeto
+**Cartões de resumo**  
+<img alt="Summary Demo" src="./img/demo-summary.png" width="400" align="center">  
+Fique à par das medições de nível do rio e chuva mais recentes.  
 
-* **Domínio:** Monitoramento Hidrológico e Ambiental.
-* **Entidades Principais:** Estações Hidrológicas, Nível do Rio (metros), Precipitação (mm/h) e Estado de Transmissão.
-* **Objetivo:** Desenvolver uma interface web interativa para consumo de dados hidrológicos, oferecendo visualização gráfica e analítica para apoio à tomada de decisão.
+**Gráficos dinâmicos**  
+<img alt="Summary Demo" src="./img/demo-level-chart.png" width="400" align="center">
+<img alt="Summary Demo" src="./img/demo-rain-chart.png" width="400" align="center">  
+Analise séries históricas de nível do rio e chuva por meio de gráficos interativos.  
 
----
+**Tabela de dados**  
+<img alt="Table Demo" src="./img/demo-table.png" width="400" align="center">  
 
-## 💻 Tecnologias Utilizadas
+Visualize cada leitura de nível e chuva disponibilizados pela estação e organize os dados em ordem crescente ou descrescente a partir de qualquer uma das colunas.  
 
-### FrontEnd
-* **ReactJS**
-* **JavaScript (ES6+)**
-* **Ant Design (AntD)** / Componentes customizados
-* **Chart Libraries (D3 / Recharts)** para os gráficos de nível e chuva
----
-## 📷 Telas da Aplicação
+## Desenvolvimento
 
-As telas abaixo ilustram as principais funcionalidades do sistema de monitoramento hidrológico:
+### Tecnologias e bibliotecas utilizadas:  
+* **ReactJS**  
+    Biblioteca para construção de componentes e gestão de estados.  
+* **Vite**  
+    Ferramenta de build e ambiente de desenvolvimento. 
+* **Ant Design**  
+    Biblioteca de componentes de interface de usuário.  
+* **Recharts**  
+    Biblioteca para renderização dos gráficos.  
+* **Storybook**  
+    Ferramenta de testes para componentes de interface React/Vue.
+* **JavaScript** / **HTML** / **CSS**
 
-### 1. Visão Geral (Dashboard Main)
-Painel principal exibindo o seletor da estação, metadados operacionais, seletor de janela de tempo, cards de último nível registrado, precipitação recente e estado de transmissão.
+### Requisitos Funcionais:  
+| Código | Funcionalidade | Status |  
+| :---: | :--- | :---: |  
+| **RF01** | Listar as estações de monitoramento disponíveis | ☑ |  
+| **RF02** | Permitir selecionar uma estação | ☑ |  
+| **RF03** | Exibir rio e município da estação selecionada | ☑ |  
+| **RF04** | Exibir a última medição de nível do rio (com unidade e horário) | ☑ |  
+| **RF05** | Exibir a última medição de precipitação (com unidade e horário) | ☑ |  
+| **RF06** | Apresentar gráfico histórico do nível do rio | ☑ |  
+| **RF07** | Apresentar gráfico histórico de precipitação separado do nível | ☑ |  
+| **RF08** | Permitir selecionar períodos de 12, 24 ou 48 horas | ☑ |  
+| **RF09** | Informar quando não existirem dados disponíveis | ☑ |  
+| **RF10** | Apresentar medições em tabela | ☑ |  
+| **RF11** | Permitir ordenar e filtrar registros da tabela | ☑ |  
 
-<p align="center"> <img width="1912" height="866" alt="01" src="https://github.com/user-attachments/assets/fa174480-9791-46ec-a1be-92dd90271c4c" />
-
-</p>
-
----
-
-### 2. Histórico de Medições (Gráficos Analíticos)
-Página focada na análise profunda com gráficos interativos de área (Nível do Rio em metros) e gráficos de barras para a precipitação recente.
-
-<p align="center">
- <img width="1677" height="866" alt="02" src="https://github.com/user-attachments/assets/7e08b9a7-15e8-4867-bc2b-0feb40270b86" />
-
- ---
-
-<img width="1662" height="855" alt="02 1" src="https://github.com/user-attachments/assets/534f6f58-3334-466d-9362-66540c223796" />
-
-</p>
-
----
-
-### 3. Consulta Analítica de Medições
-Listagem em tabela das medições registradas, permitindo ordenação rápida, visualização do estado e aplicação de filtros detalhados.
-
-<p align="center">   <img width="1536" height="867" alt="03" src="https://github.com/user-attachments/assets/f112ee94-e3cb-4611-baa2-8a918bad1f1a" />
-
-</p>
-
----
-## 📊 Modelagem dos Dados
+## Modelagem dos Dados
 
 ### Diagrama de Classes
-O diagrama de classes abaixo representa o modelo conceitual utilizado no projeto para estruturar as informações das estações e medições hidrológicas.
 
- <img width="2085" height="1635" alt="graph" src="https://github.com/user-attachments/assets/839cd554-04b8-48c3-adc1-3e79ec80413e" />
+Para visualizar o diagrama do projeto completo, renderize o conteúdo de /diagrams/full_diagram.puml no endereço https://www.plantuml.com/plantuml.  
 
----
+**Diagrama de dados**  
+<img alt="Front End Data Diagram" src="./img/data-diagram.png" width="1024" align="center">  
 
-## 🗂️ Estrutura do Projeto (FrontEnd)
+**Diagrama de componentes**  
+<img alt="Front End Component Diagram" src="./img/components-diagram.png" width="1024" align="center">  
 
-A organização das pastas e arquivos do projeto segue a seguinte estrutura:
-
-```text
-monitoramento-hidrologico/
-├── img/
-│   ├── cogmo-logo.png
-│   ├── ifb-logo.png
-│   └── ...
-├── src/
-│   ├── assets/
-│   ├── components/
-│   │   ├── AppHeader.jsx
-│   │   ├── MeasurementCharts.jsx
-│   │   ├── MeasurementTable.jsx
-│   │   ├── Overview.jsx
-│   │   └── StationControls.jsx
-│   ├── data/
-│   │   └── stations.js
-│   ├── App.css
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-├── .env
-├── package.json
-└── README.md
-```
----
-
-## 💻 Execução Local
-
-Para executar este projeto em sua máquina localmente, siga os passos abaixo:
-
-```bash
-# Clone este repositório
-git clone [https://github.com/RebecaNM30/monitoramento-hidrologico.git](https://github.com/RebecaNM30/monitoramento-hidrologico.git)
-
-# Entre na pasta do projeto
-cd monitoramento-hidrologico
-
-# Instale as dependências
-npm install
-
-# Inicie o servidor de desenvolvimento
-npm run dev
-```
----
-
-## 👥 Autoria
-
-| Logo | Informações |
-| :---: | :--- |
-| <img width="100" height="100" alt="bfd-logo png" src="https://github.com/user-attachments/assets/4a0d47ed-bf1f-4f21-9b61-b5a3ddd9425a" />| **Projeto:** Bolsa Futuro Digital (BFD)<br>**Área:** Front-End / Monitoramento Hidrológico e Meteorológico |
-| <img width="100" height="100" alt="ifb-logo jpeg" src="https://github.com/user-attachments/assets/e2c09d46-2785-4d95-9f1c-f2973eb528d3" />| **Instituição:** Instituto Federal de Brasília (IFB) - Campus Taguatinga |
-<img width="100" height="100" alt="hbr-logo jpeg" src="https://github.com/user-attachments/assets/9b890101-7953-4ebd-90de-5a48f352712d" />  |**Realização:** Instituto Hardware BR<br>**Autores:** Rebeca Marinho, Eduardo Ribeiro e Leonilson Jedi |
----
-
-# 📝 Considerações Finais
-
-Este projeto demonstra:
-* **Aplicação de conceitos avançados** de ReactJS e componentes visuais interativos.
-* **Integração e visualização** de séries temporais e dados meteorológicos/hidrológicos através de gráficos analíticos (Recharts).
-* **Organização de código** limpa, modular e componentizada seguindo padrões profissionais de mercado.
-* **Documentação estruturada** de arquitetura e modelagem de software para sistemas web.
+**Diagrama de hooks e utilidades**  
+<img alt="Front End Hooks Diagram" src="./img/hooks-diagram.png" width="650" align="center">  
 
 
+## Execução Local
 
+Para executar este projeto localmente, siga os seguintes passos em um terminal de comandos:  
+   
+* Integração com este repositório no GitHub  
+    * Pré-requisitos: [Git](https://git-scm.com/).  
+
+
+    1. **Clone o repositório:**
+   ```
+   git clone https://github.com/silver-ward/monitoramento-hidrologico.git
+   ```
+
+    2. **Entre no diretório que foi clonado:**
+    ```
+    cd monitoramento-hidrologico
+    ```
+
+* Execução do código  
+    * Pré-requisitos: [Node.js](https://nodejs.org/).  
+
+    3. **Instale as dependências:**
+        ```
+        npm install
+        ```
+
+    4. **Inicie o servidor de desenvolvimento:**
+        ```
+        npm run dev
+        ```
+
+    5. **Abra no navegador o endereço localhost especificado no terminal.**  
+        Exemplo:  
+        ```
+        http://localhost:5173/
+        ```
+
+* Testes de UI  
+    * Pré-requisitos: [Storybook.js](https://storybook.js.org/).  
+    6. **Inicie o servidor de testes Storybook:**
+        ```
+        npm run storybook
+        ```
+    7. **Abra no navegador o endereço localhost especificado no terminal.**
+    Exemplo:  
+        ```
+        http://127.0.0.1:6006/
+        ```
+
+## Licença
+
+Projeto desenvolvido por Eduardo Ribeiro, Leonilson Araújo e Rebeca Nogueira para a Cogmo Technology no âmbito do programa Bolsa Futuro Digital, realizado por parceria entre o Instituto Hardware Brasil e o Instituto Federal de Brasília.
+
+<img src="./img/hbr-logo.png" width="100" align="center">
+<img src="./img/ifb-test.webp" width="100" align="center">
+<img src="./img/cogmo-logo.png" width="100" align="center">
