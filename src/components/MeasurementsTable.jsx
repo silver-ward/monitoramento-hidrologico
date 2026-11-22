@@ -124,7 +124,13 @@ export default function MeasurementsTable({ readings }) {
             setPage(1)
           }
         }}
-        locale={{ emptyText: 'Nenhuma medição encontrada para os filtros selecionados.' }}
+        locale={{
+          emptyText: 'Nenhuma medição encontrada para os filtros selecionados.',
+          sortTitle: 'Clique para ordenar',
+          triggerAsc: 'Clique para ordenar crescente',
+          triggerDesc: 'Clique para ordenar decrescente',
+          cancelSort: 'Clique para remover ordenação',
+        }}
         tableLayout="fixed"
         pagination={{
           current: page,
