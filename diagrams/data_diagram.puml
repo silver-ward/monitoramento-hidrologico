@@ -1,0 +1,71 @@
+@startuml Data
+
+package "Domain Entities" {
+    class Station {
+        - #id: string
+        - #name: string
+        - #river: string
+        - #municipality: string
+        - #updatedAt: string|null
+        + get id(): string
+        + get name(): string
+        + get river(): string
+        + get municipality(): string
+        + get updatedAt(): string|null
+        + static fromApi(station): Station
+    }
+
+    class Observation {
+        - #id: string|null
+        - #stationId: string
+        - #metric: 'level'|'rain'
+        - #observedAt: string|null
+        - #value: number|null
+        - #unit: string
+        - #source: string|null
+        + get id(): string|null
+        + get stationId(): string
+        + get metric(): string
+        + get observedAt(): string|null
+        + get value(): number|null
+        + get unit(): string
+        + get source(): string|null
+    }
+}
+
+package "Data Access Layer" {
+    class StationDAO {
+        + async listStations(): Promise<{dataMode, stations: Station[]}>
+        + async getSummary(id: string): Promise<SummaryResult>
+    }
+
+    class ObservationDAO {
+        + async listSeries(stationId, metric, hours): Promise<SeriesResult>
+    }
+
+    class configURL {
+        + stationsUrl: string
+        + summaryUrl: string
+        + seriesUrl: string
+    }
+}
+
+StationDAO --> Station : creates
+StationDAO --> Observation : creates
+ObservationDAO --> Observation : creates
+StationDAO --> configURL : uses
+ObservationDAO --> configURL : uses
+
+note right of StationDAO
+  Fetches from API:
+  - /stations → listStations()
+  - /stations/:id/summary → getSummary()
+end note
+
+note right of ObservationDAO
+  Fetches from API:
+  - /stations/:id/series?metric&hours
+  → listSeries()
+end note
+
+@enduml

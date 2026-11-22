@@ -1,0 +1,101 @@
+@startuml React Components
+
+package "React Components" {
+    class App {
+        - stations: Station[]
+        - selectedStationId: string|null
+        - timeRange: string
+        - stationData: StationData|null
+        - stationsLoading: boolean
+        - stationDataLoading: boolean
+        - refreshing: boolean
+        + handleStationChange(stationId)
+        + handleTimeRangeChange(range)
+        + handleRefresh()
+    }
+
+    class AppHeader {
+        + items: PageItem[]
+        + currentPage: string
+        + onNavigate(page)
+        + onContact()
+    }
+
+    class StationControls {
+        + stations: Station[]
+        + selectedStationId: string
+        + onStationChange(id)
+        + showTimeRange: boolean
+        + timeRange: string
+        + onTimeRangeChange(range)
+        + onRefresh()
+        + refreshing: boolean
+    }
+
+    class StationDetails {
+        + station: Station
+        + dataMode: string
+        + timePresentation: TimePresentation
+    }
+
+    class Overview {
+        + latest: LatestData
+        + timePresentation: TimePresentation
+    }
+
+    class MeasurementCharts {
+        + station: Station
+        + levelObservations: Observation[]
+        + rainObservations: Observation[]
+        + levelIntervalMinutes: number
+        + rainIntervalMinutes: number
+        + timePresentation: TimePresentation
+        + timeRange: string
+    }
+
+    class MeasurementsTable {
+        + readings: TableReading[]
+    }
+
+    class LoadingOverlay {
+        + loading: boolean
+    }
+}
+
+package "Hooks & Utilities" {
+    class useLevelRain {
+        + level: Observation[]
+        + rain: Observation[]
+        + timePresentation: TimePresentation
+        - returns: TableReading[]
+    }
+
+    class TimePresentation {
+        + getLabel(): string
+        + formatTime(timestamp): string
+        + formatDate(timestamp): string
+        + getTimezone(): string
+    }
+}
+
+App --> useLevelRain : uses
+App --> TimePresentation : uses
+
+App --> AppHeader : renders
+App --> StationControls : renders
+App --> StationDetails : renders
+App --> Overview : renders
+App --> MeasurementCharts : renders
+App --> MeasurementsTable : renders
+App --> LoadingOverlay : renders
+
+StationControls --> App : onStationChange
+StationControls --> App : onTimeRangeChange
+StationControls --> App : onRefresh
+
+MeasurementCharts --> Station : uses
+MeasurementCharts --> Observation : uses
+MeasurementsTable --> TableReading : uses
+
+
+@enduml

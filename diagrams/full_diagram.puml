@@ -1,0 +1,185 @@
+@startuml Full
+
+!define DEFAULT_FONTNAME Comfortaa
+skinparam defaultFontName DEFAULT_FONTNAME
+skinparam classAttributeIconSize 0
+skinparam nodesep 60
+skinparam ranksep 60
+
+package "Domain Entities" {
+    class Station {
+        - #id: string
+        - #name: string
+        - #river: string
+        - #municipality: string
+        - #updatedAt: string|null
+        + get id(): string
+        + get name(): string
+        + get river(): string
+        + get municipality(): string
+        + get updatedAt(): string|null
+        + static fromApi(station): Station
+    }
+
+    class Observation {
+        - #id: string|null
+        - #stationId: string
+        - #metric: 'level'|'rain'
+        - #observedAt: string|null
+        - #value: number|null
+        - #unit: string
+        - #source: string|null
+        + get id(): string|null
+        + get stationId(): string
+        + get metric(): string
+        + get observedAt(): string|null
+        + get value(): number|null
+        + get unit(): string
+        + get source(): string|null
+    }
+}
+
+package "Data Access Layer" {
+    class StationDAO {
+        + async listStations(): Promise<{dataMode, stations: Station[]}>
+        + async getSummary(id: string): Promise<SummaryResult>
+    }
+
+    class ObservationDAO {
+        + async listSeries(stationId, metric, hours): Promise<SeriesResult>
+    }
+
+    class configURL {
+        + stationsUrl: string
+        + summaryUrl: string
+        + seriesUrl: string
+    }
+}
+
+package "React Components" {
+    class App {
+        - stations: Station[]
+        - selectedStationId: string|null
+        - timeRange: string
+        - stationData: StationData|null
+        - stationsLoading: boolean
+        - stationDataLoading: boolean
+        - refreshing: boolean
+        + handleStationChange(stationId)
+        + handleTimeRangeChange(range)
+        + handleRefresh()
+    }
+
+    class AppHeader {
+        + items: PageItem[]
+        + currentPage: string
+        + onNavigate(page)
+        + onContact()
+    }
+
+    class StationControls {
+        + stations: Station[]
+        + selectedStationId: string
+        + onStationChange(id)
+        + showTimeRange: boolean
+        + timeRange: string
+        + onTimeRangeChange(range)
+        + onRefresh()
+        + refreshing: boolean
+    }
+
+    class StationDetails {
+        + station: Station
+        + dataMode: string
+        + timePresentation: TimePresentation
+    }
+
+    class Overview {
+        + latest: LatestData
+        + timePresentation: TimePresentation
+    }
+
+    class MeasurementCharts {
+        + station: Station
+        + levelObservations: Observation[]
+        + rainObservations: Observation[]
+        + levelIntervalMinutes: number
+        + rainIntervalMinutes: number
+        + timePresentation: TimePresentation
+        + timeRange: string
+    }
+
+    class MeasurementsTable {
+        + readings: TableReading[]
+    }
+
+    class LoadingOverlay {
+        + loading: boolean
+    }
+}
+
+package "Hooks & Utilities" {
+    class useLevelRain {
+        + level: Observation[]
+        + rain: Observation[]
+        + timePresentation: TimePresentation
+        - returns: TableReading[]
+    }
+
+    class TimePresentation {
+        + getLabel(): string
+        + formatTime(timestamp): string
+        + formatDate(timestamp): string
+        + getTimezone(): string
+    }
+}
+
+' Relationships
+StationDAO --> Station : creates
+StationDAO --> Observation : creates
+ObservationDAO --> Observation : creates
+StationDAO --> configURL : uses
+ObservationDAO --> configURL : uses
+
+App --> StationDAO : uses
+App --> ObservationDAO : uses
+App --> useLevelRain : uses
+App --> TimePresentation : uses
+
+App --> AppHeader : renders
+App --> StationControls : renders
+App --> StationDetails : renders
+App --> Overview : renders
+App --> MeasurementCharts : renders
+App --> MeasurementsTable : renders
+App --> LoadingOverlay : renders
+
+StationControls --> App : onStationChange
+StationControls --> App : onTimeRangeChange
+StationControls --> App : onRefresh
+
+MeasurementCharts --> Station : uses
+MeasurementCharts --> Observation : uses
+MeasurementsTable --> TableReading : uses
+
+note right of App
+  Root component managing:
+  - Station list & selection
+  - Time range (12h/24h/48h)
+  - Data fetching & loading states
+  - Manual refresh trigger
+end note
+
+note right of StationDAO
+  Fetches from API:
+  - /stations → listStations()
+  - /stations/:id/summary → getSummary()
+end note
+
+note right of ObservationDAO
+  Fetches from API:
+  - /stations/:id/series?metric&hours
+  → listSeries()
+end note
+
+@enduml

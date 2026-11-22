@@ -1,0 +1,37 @@
+@startuml Hooks & Utilities
+
+package "React Components" {
+    class App {
+        - stations: Station[]
+        - selectedStationId: string|null
+        - timeRange: string
+        - stationData: StationData|null
+        - stationsLoading: boolean
+        - stationDataLoading: boolean
+        - refreshing: boolean
+        + handleStationChange(stationId)
+        + handleTimeRangeChange(range)
+        + handleRefresh()
+    }
+}
+
+package "Hooks & Utilities" {
+    class useLevelRain {
+        + level: Observation[]
+        + rain: Observation[]
+        + timePresentation: TimePresentation
+        - returns: TableReading[]
+    }
+
+    class TimePresentation {
+        + getLabel(): string
+        + formatTime(timestamp): string
+        + formatDate(timestamp): string
+        + getTimezone(): string
+    }
+}
+
+App --> useLevelRain : uses
+App --> TimePresentation : uses
+
+@enduml
