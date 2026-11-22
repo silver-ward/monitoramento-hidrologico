@@ -321,7 +321,8 @@
 
 .station-metadata .ant-descriptions-item-label,
 .station-metadata .ant-descriptions-item-content {
-  font-size: 0.75rem;
+  font-weight: 500;
+  font-size: 0.8rem;
 }
 
 .station-metadata .ant-descriptions-item-container {

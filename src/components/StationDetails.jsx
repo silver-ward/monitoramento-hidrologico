@@ -9,7 +9,7 @@ import { Descriptions } from 'antd'
 export default function StationDetails({ station, dataMode, timePresentation }) {
   return (
     <div className="station-details">
-      <div className="control-inner container">
+      <div className="container">
         <Descriptions className="station-metadata" size="small" column={{ xs: 1, md: 2, xl: 3 }}>
           <Descriptions.Item label={<><NumberOutlined /> Código da estação</>}>
             {station.id}
