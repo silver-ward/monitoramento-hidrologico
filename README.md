@@ -1,10 +1,11 @@
 # Monitoramento Hidrológico
 
-Interface web de monitoramento de dados hidrológicos de nível de rios e precipitação pluvial. 
-
+Interface web de monitoramento de dados hidrológicos de nível de rios e precipitação pluvial.  
 Visualize medições recentes e faça análises de séries históricas por meio de tabelas e gráficos interativos.  
 
-<img alt="Demonstração mobile" src="./img/demo-mobile.gif" width="350" align="center">  
+
+|<img alt="Demonstração mobile" src="./img/demo-mobile.gif" width="350" align="center">|  
+|---|  
 
 <br />Acesse o aplicativo em:  
 https://hydrocogmo.vercel.app/  
@@ -24,22 +25,24 @@ https://github.com/silver-ward/monitoramento-hidrologico
 
 ## Funcionalidades
 **Listagem e seleção de estações**  
-<img alt="Stations Demo" src="./img/demo-stations.png" width="400" align="center">  
 Selecione diferentes estações de monitoramento hidrológico e defina a janela de tempo dos dados recuperados.  
+|<img alt="Stations Demo" src="./img/demo-stations.png" width="400" align="center">|  
+|---|  
 
 **Cartões de resumo**  
-<img alt="Summary Demo" src="./img/demo-summary.png" width="300" align="center">  
-Fique à par das medições de nível do rio e chuva mais recentes.  
+Fique à par das medições de chuva e nível do rio mais recentes.  
+|<img alt="Summary Demo" src="./img/demo-summary.png" width="300" align="center">|  
+|---|
 
 **Gráficos dinâmicos**  
-<img alt="Summary Demo" src="./img/demo-level-chart.png" width="300" align="center">
-<img alt="Summary Demo" src="./img/demo-rain-chart.png" width="300" align="center">  
-Analise séries históricas de nível do rio e chuva por meio de gráficos interativos.  
+Analise séries históricas de chuva e nível do rio por meio de gráficos interativos.  
+|<img alt="Summary Demo" src="./img/demo-level-chart.png" width="300" align="center">|<img alt="Summary Demo" src="./img/demo-rain-chart.png" width="300" align="center">|  
+|---|---| 
 
 **Tabela de dados**  
-<img alt="Table Demo" src="./img/demo-table.png" width="400" align="center">  
-
 Visualize cada leitura de nível e chuva disponibilizados pela estação e organize os dados em ordem crescente ou descrescente a partir de qualquer uma das colunas.  
+|<img alt="Table Demo" src="./img/demo-table.png" width="400" align="center">|  
+|---|  
 
 ## Desenvolvimento
 
@@ -47,14 +50,15 @@ Visualize cada leitura de nível e chuva disponibilizados pela estação e organ
 * **ReactJS**  
     Biblioteca para construção de componentes e gestão de estados.  
 * **Vite**  
-    Ferramenta de build e ambiente de desenvolvimento. 
+    Ferramenta de build e ambiente de desenvolvimento.  
 * **Ant Design**  
     Biblioteca de componentes de interface de usuário.  
 * **Recharts**  
     Biblioteca para renderização dos gráficos.  
 * **Storybook**  
-    Ferramenta de testes para componentes de interface React/Vue.
-* **JavaScript** / **HTML** / **CSS**
+    Ferramenta de testes para componentes de interface React/Vue.  
+* **JavaScript** / **HTML** / **CSS**  
+    Linguagens de programação, estruturação e apresentação web.  
 
 ### Requisitos Funcionais:  
 | Código | Funcionalidade | Status |  
@@ -80,12 +84,13 @@ Para visualizar o diagrama do projeto completo, renderize o conteúdo de /diagra
 **Diagrama de dados**  
 <img alt="Front End Data Diagram" src="./img/data-diagram.png" width="1024" align="center">  
 
+
 **Diagrama de componentes**  
 <img alt="Front End Component Diagram" src="./img/components-diagram.png" width="1024" align="center">  
 
+
 **Diagrama de hooks e utilidades**  
 <img alt="Front End Hooks Diagram" src="./img/hooks-diagram.png" width="650" align="center">  
-
 
 ## Execução Local
 
@@ -132,7 +137,7 @@ Para executar este projeto localmente, siga os seguintes passos em um terminal d
         npm run storybook
         ```
 
-    7. **Abra no navegador o endereço localhost especificado no terminal.**
+    7. **Abra no navegador o endereço localhost especificado no terminal.**  
         Exemplo:  
         ```
         http://127.0.0.1:6006/
@@ -142,6 +147,4 @@ Para executar este projeto localmente, siga os seguintes passos em um terminal d
 
 Projeto desenvolvido por Eduardo Ribeiro, Leonilson Araújo e Rebeca Nogueira para a Cogmo Technology no âmbito do programa Bolsa Futuro Digital, realizado por parceria entre o Instituto Hardware Brasil e o Instituto Federal de Brasília.
 
-<img src="./img/hbr-logo.png" width="100" align="center">
-<img src="./img/ifb-test.webp" width="100" align="center">
-<img src="./img/cogmo-logo.png" width="100" align="center">
+<img src="./img/hbr-logo.png" width="100" align="center"><img src="./img/ifb-test.webp" width="100" align="center"><img src="./img/cogmo-logo.png" width="100" align="center">
