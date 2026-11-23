@@ -62,22 +62,6 @@ package "React Components" {
     }
 }
 
-package "Hooks & Utilities" {
-    class useLevelRain {
-        + level: Observation[]
-        + rain: Observation[]
-        + timePresentation: TimePresentation
-        - returns: TableReading[]
-    }
-
-    class TimePresentation {
-        + getLabel(): string
-        + formatTime(timestamp): string
-        + formatDate(timestamp): string
-        + getTimezone(): string
-    }
-}
-
 App --> useLevelRain : uses
 App --> TimePresentation : uses
 
@@ -96,6 +80,5 @@ StationControls --> App : onRefresh
 MeasurementCharts --> Station : uses
 MeasurementCharts --> Observation : uses
 MeasurementsTable --> TableReading : uses
-
 
 @enduml
