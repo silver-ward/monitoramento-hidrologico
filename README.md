@@ -1,7 +1,7 @@
 # Monitoramento Hidrológico
 
-Interface web de monitoramento de dados hidrológicos de nível de rios e precipitação pluvial.  
-Visualize medições recentes e faça análises de séries históricas por meio de tabelas e gráficos interativos.  
+Interface web de monitoramento de dados hidrológicos de nível de rio e precipitação pluvial.  
+Visualize medições recentes e faça análises de séries históricas por meio de tabelas e gráficos interativos!  
 
 
 |<img alt="Demonstração mobile" src="./img/demo-mobile.gif" width="350" align="center">|  
