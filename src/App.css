@@ -454,7 +454,25 @@
 }
 
 .measurements-card {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  max-height: calc(100vh - 60px);
+}
+
+.measurements-card .ant-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.measurements-card .chart-wrapper {
+  position: relative;
+  flex: 0 1 auto;
+  min-height: 200px;
+  min-width: 0;
+  aspect-ratio: 1.6;
 }
 
 .measurements-card .ant-card-head-wrapper {
@@ -532,7 +550,7 @@
   }
 }
 
-@media (height <= 440px) {
+@media (height < 700px) {
   .control-strip {
     position: static;
   }

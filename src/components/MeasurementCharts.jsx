@@ -94,8 +94,9 @@ export default function MeasurementCharts({
         {levelObservations.length === 0 ? (
           <EmptyMetric label="Nível" station={station} timeRange={timeRange} />
         ) : (
-          <ResponsiveContainer width="100%" aspect={1.6}>
-            <AreaChart data={levelData} margin={{ top: 0, right: 0, bottom: 15, left: 5 }}>
+          <div className="chart-wrapper">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={levelData} margin={{ top: 0, right: 0, bottom: 15, left: 6 }}>
               <defs>
                 <linearGradient id="levelFill" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#6029a5" stopOpacity={0.35} />
@@ -130,13 +131,15 @@ export default function MeasurementCharts({
               />
             </AreaChart>
           </ResponsiveContainer>
+          </div>
         )}
       </Card>
       <Card className="measurements-card" title={<span className="card-title"><CloudOutlined />Histórico de Chuva</span>}>
         {rainObservations.length === 0 ? (
           <EmptyMetric label="Chuva" station={station} timeRange={timeRange} />
         ) : (
-          <ResponsiveContainer width="100%" aspect={1.6}>
+          <div className="chart-wrapper">
+          <ResponsiveContainer width="100%" height="100%">
             <BarChart data={rainData} margin={{ top: 0, right: 0, bottom: 15, left: 5 }}>
               <CartesianGrid vertical={false} stroke="#eee8f5" />
               <TimeAxis timePresentation={timePresentation} />
@@ -162,6 +165,7 @@ export default function MeasurementCharts({
               />
             </BarChart>
           </ResponsiveContainer>
+          </div>
         )}
       </Card>
     </div>
