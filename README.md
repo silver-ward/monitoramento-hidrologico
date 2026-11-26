@@ -40,7 +40,7 @@ Analise séries históricas de chuva e nível do rio por meio de gráficos inter
 |---|---| 
 
 **Tabela de dados**  
-Visualize cada leitura de nível e chuva disponibilizados pela estação e organize os dados em ordem crescente ou descrescente a partir de qualquer uma das colunas.  
+Visualize cada leitura de nível e chuva disponibilizados pela estação e organize os dados em ordem crescente ou decrescente a partir de qualquer uma das colunas.  
 |<img alt="Table Demo" src="./img/demo-table.png" width="400" align="center">|  
 |---|  
 
