@@ -1,27 +1,33 @@
 # Monitoramento Hidrológico
 
 Interface web de monitoramento de dados hidrológicos de nível de rio e precipitação pluvial.  
+
 Visualize medições recentes e faça análises de séries históricas por meio de tabelas e gráficos interativos!  
 
 
 |<img alt="Demonstração mobile" src="./img/demo-mobile.gif" width="350" align="center">|  
 |---|  
 
-<br />Acesse o aplicativo em:  
-https://hydrocogmo.vercel.app/  
+<br />Acesse o aplicativo: https://hydrocogmo.vercel.app/  
 
 ## Links  
 
-#### API REST com dados simulados utilizada:  
+#### API REST com dados simulados:  
+
+https://monitoramento-hidrologico-api.onrender.com
+
 | Nome | Método | Endpoint  
 | :---: | :---: | :--- | 
-| Health | GET | https://n8n.incluc0de.com.br/webhook/cogmo/api/health |
-| Stations | GET | https://n8n.incluc0de.com.br/webhook/cogmo/api/stations |
-| Summary | GET | https://n8n.incluc0de.com.br/webhook/ca01b8a8-6b9c-42ab-b126-3bc5bc27bcb3/cogmo/api/stations/EST-01/summary |
-| Series | GET | https://n8n.incluc0de.com.br/webhook/2ee3441c-7147-401d-a504-73eedb917573/cogmo/api/stations/EST-01/series?metric=rain&hours=24 |
+| Health | GET | api/health |
+| Stations | GET | api/stations |
+| Summary | GET | api/stations/{stationid}/summary |
+| Series | GET | api/stations/{stationid}/series?metric={metric}&hours={timeframe} |
 
-#### Repositório front end no GitHub:  
+#### Repositório front end:  
 https://github.com/silver-ward/monitoramento-hidrologico  
+
+#### Repositório back end:  
+https://github.com/silver-ward/monitoramento-hidrologico-API
 
 ## Funcionalidades
 **Listagem e seleção de estações**  
@@ -79,7 +85,7 @@ Visualize cada leitura de nível e chuva disponibilizados pela estação e organ
 
 ### Diagrama de Classes
 
-Para visualizar o diagrama do projeto completo, renderize o conteúdo de /diagrams/full_diagram.puml no endereço https://www.plantuml.com/plantuml.  
+Para visualizar o diagrama completo, renderize o conteúdo de /diagrams/full_diagram.puml no endereço https://www.plantuml.com/plantuml.  
 
 **Diagrama de dados**  
 <img alt="Front End Data Diagram" src="./img/data-diagram.png" width="1024" align="center">  
@@ -129,8 +135,9 @@ Para executar este projeto localmente, siga os seguintes passos em um terminal d
         http://localhost:5173/
         ```
 
-* Testes de UI  
-    Pré-requisitos: [Storybook.js](https://storybook.js.org/).  
+    Para acessar dados de uma API, defina URLs sem proteção CORS no arquivo /src/data/DAOs/configURL.js.  
+
+* Testes de interface de usuário  
     
     6. **Inicie o servidor de testes Storybook:**  
         ```

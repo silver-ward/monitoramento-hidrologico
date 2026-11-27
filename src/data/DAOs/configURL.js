@@ -1,6 +1,6 @@
-// Dedicated Render API health check:
+// Dedicated Render API health check (CORS enabled):
 // https://monitoramento-hidrologico-api.onrender.com/api/health
-// Alternative n8n API health check:
+// Alternative n8n API health check (no CORS):
 // https://n8n.incluc0de.com.br/webhook/cogmo/api/health
 
 export const stationsUrl =
