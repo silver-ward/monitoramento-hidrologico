@@ -53,18 +53,20 @@ Visualize cada leitura de nível e chuva disponibilizados pela estação e organ
 ## Desenvolvimento
 
 ### Tecnologias e bibliotecas utilizadas:  
-* **ReactJS**  
-    Biblioteca para construção de componentes e gestão de estados.  
+* **JavaScript** / **HTML** / **CSS**  
+    Linguagens de programação, estruturação e apresentação web.  
 * **Vite**  
     Ferramenta de build e ambiente de desenvolvimento.  
+* **Node.js**  
+    Ambiente de execução para JavaScript.  
+* **ReactJS**  
+    Biblioteca para construção de componentes e gestão de estados.  
 * **Ant Design**  
     Biblioteca de componentes de interface de usuário.  
 * **Recharts**  
-    Biblioteca para renderização dos gráficos.  
+    Biblioteca de renderização de gráficos.  
 * **Storybook**  
     Ferramenta de testes para componentes de interface React/Vue.  
-* **JavaScript** / **HTML** / **CSS**  
-    Linguagens de programação, estruturação e apresentação web.  
 
 ### Requisitos Funcionais:  
 | Código | Funcionalidade | Status |  
