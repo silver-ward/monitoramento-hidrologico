@@ -96,7 +96,7 @@ export default function MeasurementCharts({
         ) : (
           <div className="chart-wrapper">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={levelData} margin={{ top: 0, right: 0, bottom: 15, left: 6 }}>
+            <AreaChart data={levelData} margin={{ top: 5, right: 5, bottom: 15, left: 6 }}>
               <defs>
                 <linearGradient id="levelFill" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#6029a5" stopOpacity={0.35} />
@@ -140,7 +140,7 @@ export default function MeasurementCharts({
         ) : (
           <div className="chart-wrapper">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={rainData} margin={{ top: 0, right: 0, bottom: 15, left: 5 }}>
+            <BarChart data={rainData} margin={{ top: 0, right: 15, bottom: 15, left: 5 }}>
               <CartesianGrid vertical={false} stroke="#eee8f5" />
               <TimeAxis timePresentation={timePresentation} />
               <YAxis
